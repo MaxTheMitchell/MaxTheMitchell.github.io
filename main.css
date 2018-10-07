@@ -1,7 +1,9 @@
 	h1 {
-		color: #42f4e2;
+        color: #da006d;
+        font-weight:bold
 	}
 	p {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 		color: purple;
     }
     /* Move down content because we have a fixed navbar that is 3.5rem tall */

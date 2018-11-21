@@ -1,12 +1,15 @@
 	h1 {
-        color: #da006d;
+        color: #333131;
         font-weight:bold
 	}
 	p {
         font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-		color: purple;
+		color: #333131;
     }
     /* Move down content because we have a fixed navbar that is 3.5rem tall */
 body {
-    padding-top: 3.5rem;
+    background-color: #c9e1c6
   }
+.jumbotron {
+    background-color: 	#fdbcb4
+}

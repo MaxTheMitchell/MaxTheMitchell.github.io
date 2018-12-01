@@ -7,9 +7,15 @@
 		color: #333131;
     }
     /* Move down content because we have a fixed navbar that is 3.5rem tall */
-body {
-    background-color: #c9e1c6
-  }
-.jumbotron {
-    background-color: 	#fdbcb4
-}
+    body {
+        background-color: #c9e1c6
+    }
+    .jumbotron {
+        background-color: 	#fdbcb4
+    }
+    .btn-secondary {
+        background-color: 	#fdbcb4
+    }
+    .bottem {
+        background-color: 	#9a9561 
+    }

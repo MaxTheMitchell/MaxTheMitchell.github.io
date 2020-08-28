@@ -1,76 +1,149 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Max Mitchell's pleasant portfolio</title>
+<head>
+    <title>Max Mitchell's Portfolio</title>
+    <link rel="stylesheet" href="/main.css">
+    <script src="/main.js"></script>
+</head>
+<body>
+    <header>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="main.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    
-
-    <main role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Max Mitchell</h1>
-          <p>OSU student, computer science major, madman  </p>
-         <!-- <p><a class="btn btn-primary btn-lg" href="resume_updated.pdf" role="button">Resume &raquo;</a></p> -->
+    </header>
+    <main>
+        <div class="textbox center">
+            <h1>Max Mitchell's Portfolio</h1>
         </div>
-      </div>
-
-      <div class="container"></div>
-        <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <h2>Resume</h2>
-            <p>Below is a link to my resume for information regarding my previous work experience and skills.</p>
-            <p><a class="btn btn-secondary" href="resume_updated.pdf" role="button"><img src="resume_icon.JPG"> &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>GitHub</h2>
-            <p>Here is a link to my github, where you can check out the code behind my various works.</p>
-            <p><a class="btn btn-secondary" href="https://github.com/MaxTheMitchell/MaxTheMitchell.github.io" role="button" ><img src="github_icon.jpg"> &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Zagster Project</h2>
-            <p>Here is a data visualization I created using the data from the "Zagster" bike share database.</p>
-            <p><a class="btn btn-secondary" href="https://maxthemitchell.github.io/zagster-cleint/" role="button"><img src="zagster_icon.JPG"> &raquo;</a></p>
-          </div>
+        <div class="center" style="display:flex;">
+            <div class="textbox">
+                <h2>About Me:</h2>
+                <hr>
+                <p>
+                    Max Mitchell is not to be overlooked. From a young age Max has always possessed an acute interest in mathematics and computers. 
+                    However, his interests extend beyond these as well and believes in an interdisciplinary approach.
+                    Through his education and own explorations he has come to learn a multiplicity of programming languages and the concepts that underpin them. 
+                    He is enrolled at Oregon State University Cascades and is 
+                    on his third year towards achieving a bachelors degree in computer science.
+                </p>
+            </div>
+            <div style="width: 10%;"></div>
+            <img class="textbox" style="width: 40%;" src="https://lh3.googleusercontent.com/Itxkz_YCKXSZQpEmxcpKVXxwFR1WsvIKLxHpqIs-q0ECXKh6NH79GuI4qGsv4aaOgYmU6jtp3Y2KY0eRtWD0VSn5SYsuIdF-nd2L9Dr-Cew-dsRMzIO3MVlSyTf3zfSdodr24-8zrflntsz06vnep8SMWq4U57RnQBNIlY5lTu28dqjmHoKO8rYy64T-hNN21_YzxTPOCa-895hN_Ubu3NvzgPkM4-T4IZBPvUI1n4FMAIjCqlmFnvN07w3SSdInYhMScUPZo7ybcT7D9eLiu6BQi6aSg2Yo0kQt-VppFo113Mz-5PeY0-U_jNsFRyHisZ9AYkYAXYTeuZP0eNdPqtEFlhZ3-G4cg1PuocDDmyZ0WbwY0QbtTW40wCZGQh5s6Cq-dpIl3bYjBQdSTd8UZel4WbHhKk-6Gq7KI70mXs909DeFQsTlAMqDy0HYpE9v7wa81WkbQqzi4n2HizHG-5M_FrltqjiH_iSiIfi8JGwcb0liMvlJXVG3iRTKteWSHeLQ955jFogXbNjtW80Q2RlY9Fsp6rhk6dlXBjHctKETObfSF44ulxvuksx9XZANliNsPW_LxB24MoFevw0exZ1XjmNkfXtrCtRZTOg1YvIvswH6-OPf4ZeGZ2jlxjQj2GEi0FNpgD4SI9E74pqFB_M-UQ_jxFOiObfP0Cq7bpAXHnpahi9PTE393c-N=w688-h909-no?authuser=0">
         </div>
+        <div class="textbox center">
+            <h1>Projects</h1>
+        </div>
+        <div class="center" style="display: flex;">
+            <div class="textbox" style="width: 50%;">
+                <h2>The Sight of Music</h2>
+                <hr>
+                <p>
+                    The "Sight of Music" is a project I initially had the idea for while working at Sycamore-Semi where I was working on pulling data from web API's using a micro-controller to display 
+                    the status of different Fab equipment. Working on this birthed the idea in me that I could use Spotify's Web API to get the album cover of my currently playing song and 
+                    use that data to create some sort of display. The first thing I did was to create a <a href="https://github.com/MaxTheMitchell/the-sight-of-music-server">website</a>
+                    that would allow a user to authorize the website to read their Spotify data and to then parse 
+                    this data into a bitmap for a micro-controller to use. Next I stated working on the display. The first thing I used to make the display was a 
+                    <a href="https://www.amazon.com/gp/product/B01CDTEJBG/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&psc=1">strip of 300 led lights</a>
+                    that I cut up and sodered 
+                    into a 16x16 grid. I then created a <a href="https://github.com/MaxTheMitchell/sight-of-music-64x64-Grid-esp32">
+                    program</a> for an <a href="https://www.amazon.com/HiLetgo-Internet-Development-Wireless-Micropython/dp/B081CSJV2V/ref=sxts_sxwds-bia-wc-p13n1_0?cv_ct_cx=ESP8266&dchild=1&keywords=ESP8266&pd_rd_i=B081CSJV2V&pd_rd_r=b2bb2c5b-e9b8-4e75-ae58-e34d169199c8&pd_rd_w=NGANN&pd_rd_wg=FrshL&pf_rd_p=13bf9bc7-d68d-44c3-9d2e-647020f56802&pf_rd_r=XF3FABJ7YQ2CHENP1C30&psc=1&qid=1597975271&sr=1-1-791c2399-d602-4248-afbb-8a79de2d236f">
+                    esp8266</a> that would issue get requests to the website I made and uses the bitmap that it recieved to make the display. This method worked pretty well for 
+                    simple album covers, but for album covers that were more complex a 16x16 grid wouldn't cut it. So then I ordered a <a href="https://www.aliexpress.com/item/32381602322.html?spm=a2g0o.productlist.0.0.762174dbdchDnn&algo_pvid=d5900aa2-f4b9-441c-8558-c476d9b70dfb&algo_expid=d5900aa2-f4b9-441c-8558-c476d9b70dfb-0&btsid=0ab6d67915979748091914913e75c3&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_">
+                    64x64 led matrix</a> and upgraded to an <a href="https://www.amazon.com/gp/product/B07Q576VWZ/ref=ppx_yo_dt_b_asin_title_o01_s01?ie=UTF8&psc=1">
+                        esp32</a> because I needed a better CPU. I was 
+                    really happy with the results of the 64x64 matrix.
 
-        <hr>
-        <center>
-        <div class="col-md-4">
-        <h2>Description of myself:</h2>
-        <p>I first got interested in programming freshman year of high school and ever since I’ve been eager to dig my teeth into the exiting world of computer science. I enjoy unique challenges and projects that really push me. I have big ambitions to alter the world in some positive way through code and high hopes that these ambitions will be met.  </p>
-        </center>
-      </div> <!-- /container -->
-   
-   
-   </div>
+                </p>
+            </div>
+            <div style="width: 2%;"></div>
+            <div style="width: 25%;">
+                <div class="textbox" ><h3>16x16 LED Strip Light Grid</h3></div>
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/ZgE97FsBiyS4scVEZPftsz8wxX5LtxB3PYXy-MMWoVywPIn4zLtdZeuJj0RxUPpXpgrOLXTKPGPlO3Aj8SSYOMU549B7mLaIIdJ5hKkGAYAFDr2FGuqPnx01ScZ6Arj8RUL1cqzp-ZBhPcVPGMyfBd7T_9PNV-b3F1IgBuKNoaYGtG1r9J58Ly22X4r-7GpkWIAsabBHThlat0XvhkUknNvensWanDHZDBdne3tDQRXZWSlMJcsu8rbcEXLtiXFuTVq9suktzEh_yDJlzn0udNQUb02E-i-3b7t10PEzhySciaxhQyEG8KC8EYjQgjRWefL1gaKKC6YOm4usGsJXOJabcYKgDeTWtBlFo7aFPk9KWBuqS-whPjh2EVnPFL2I6Q9JpKvCs0b4CKRsA5u8qaJC_2AsP-2D9whVdtBlY1JYzsQOfcu04AXPteHre7Apxu1rOV0D2Jm06x_NLND_X6nAOtQVx29K7eaZkMlodt86lbnv97LYFPTX1Dz2D3i0bSiz5qu4beSDj0ZA3JlN698mVaptQSMKydAT8M_uuuCLAa4PkXKtE9WdgU4n6TQB4-MWueFochlSXiPSNVxYX8FTr7I7Tjc5nqQRaiHdMZ-l6NpZKLnLFETPphfG2ab0yzJfpfRW2TyWhiggvykIJgQux2zpkSFEOtkx4y4M_4-F4UVvYOLcfOANaiAl=s958-no?authuser=0">
+                      </div>
+                      <div class="flip-box-back">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/ktlW5ZGVtBVMl2DusnWfEMJvkOqglvLEAKgWuu-nvx0vVV6wTWCU8SVW0aGyDQS54osF7VAUYphuDaSQ7BrlHD-Dg1xEfVimmVjKsoZaLEXRKEj1weZu7JU_U8z3T-Mx5ZD0enUo4lB_uHjnl3c4qrQiAVpj04LOm4sT5sl5WZXUJu14h0Uz64B_jo6O_ECqU4pqojylcB3Ut-MUGXhRR_SidsZ5E6nm1ev77ikG96HIHXR-iJvJZ_jE0V9RKwS5Y4NdQEEW_3DMaHRF8TR61v2NX1Ri2Uwb5hYD_78NRqsGYyeJqZR581XZ1M80we5Q7FhtbBjRA_-Zm7gysrMtJBE6DJsKOhtg6sWgAknJkXdkyrj_XjuvFZqSF9Q2_R2cdO0QH5rS3NAS_n4RCRao8735EikvNrkH3MWjP1n4WTJGPmNEyOBMW82jzAb7yGwpcrNTwjSo8qXigDuXvmmlmHETPe5TcjMJN8J0Rjw5Xp6Ik6eImMdhH7ALWNvV8F-Zr0MJNyEYbQRcGqrhutuQt8s2VCg9tQyE12wwU15MDFgg4OoSYd4LGpfJzf9STLUJa7uRgS41_3RWLoxr8j0GcO0eDhFt71fJr_CUwNhNxGMQkFVoM6z6goVsRY7GkJXmBNFdS-WFQcirJoIe9PnDQSVVtIkgHyRnKPBZ9tb_miVju9kRY7rqrxdN-mg3=s959-no?authuser=0">
+                      </div>
+                    </div>
+                </div>
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/vkrNE27DiN9XtNeQdt7nI5c9z2-Kz0gYWyMAwSJywONyqFMq2XfFq5LROt3pjA5i1wDPP9kvGcTOJ38RIHaY09b3PHYKAFSBM4LzqK4DCO3_wWJ-DakzX_cOiRvqBA6ABQhEMup83Ly3XH6r6xbP6iY7Dr-1EOlccvIkn3Xqf0xEvJ2WxjiaQNz2HSph6kSNE8nTLe8Eiszcz1MhQq2pAE7Y5yzzZFK1TLIjCAl6Mqt1doHvrcPul20WP-HBwZowkuekkKNX7nQDDV99JehkuEbmXeYHduyY8Reaeo678uXnF-ZdDCVwY1cUgPiVMu3a_nrOpH58IKVm6YQrUNi_en_CiAO_6rph4TNFWkmJNOFw6Z_d4XvQiDuPVnirfXHVIJLnU9-JRexV9b9UDevlSIxmXcg1VgBZ6wIzaHlJcfahS_rOtGtc74wNkQrRt7nxMv_fz3SnfHbbwOmBqkRdtZ8SagCBN9r9T4yGiRj2yfjSXVJO8QSfCj2437y9OFeT2dp_Zn151o3tPbIj9Cof7tWy4_ldy00YUrLeUyuNFJ-ZjgTlVfgQAAEFyfNjUcHDPsvYwRqWO-zeIP-OqYOMk5home-wX4jccJSyzc_HWA8212_Z2i4bERNib3ngmY41TT5jBxptbJqBYcpHxyx4Dtiuf-RILek3YfF7DGWDr3vBmNlfj56MEEOBWmcK=s958-no?authuser=0">
+                      </div>
+                      <div class="flip-box-back">
+                        <img class="textbox album" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.scdn.co%2Fimage%2F16ca7b8003014a97caecb5048aa1d0373d40f085&f=1&nofb=1">
+                      </div>
+                    </div>
+                </div>
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/18K7QyF_kAGx4JC73DSER-tYXUCCpDXgWzjSAU1KMTA6gIDTPHHo3_KGbWEJ08XVb6hEyuYT2TWEf-MOlE64tjvqs4fEHeoO3RKfCbL09_GB_RTJXBnKu02O0OFqmyLZFIx1uahvvw7L5XzRWTUReYEP17CWbvFG9U7b0N6l-kkP_7yx1x-F42URekBnfoWx4KfeWobS7TIvxuCEePsRkJtq58pRAWhBKY4rsCDGU-Aoe2qJerII3ZvfUyx42XgKKO74mkXMnjQT8lPMubst858vrmzKSxxAnVsmFQMcfleDZFYIm1w8ZnvHg-bprL0Qkd4_CPZsuzKPN7s3cytxg-EokzdPwfb548LncFsVTXrfimI7JSn-5sDrikceSzszsU3e-wPQuITfvP291C5_sseiEgFDKquaW9SvxGXPNbN95vKiNkcV-i4l_7l2_BIArtzZIV4ygTx_gaLk8O_bLKdUrPXUCRn_SpwRWLc-px9ET9_VsGAl1fEBmy7BhvSMNyFmYUj5oLLiVo2MkOyTP20frQC5LtBjRRmxkTD_l5tpDCydOsYIOajcKEljB0D6u8KF04rb2L470x4UMJniW3ui8tGDB2shXMnZXIdlTfyppMa0rXeMRj8rhDc2tkX6voy1vnLjYiz0peWfnaAcOIPUOGOW6EYDB5r1keFg8IrloLyqn3JxHvXQN1b1=s958-no?authuser=0">
+                      </div>
+                      <div class="flip-box-back">
+                        <img class="textbox album" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.knoxroad.com%2Fwp-content%2Fuploads%2F2011%2F02%2Frem-monster.jpg&f=1&nofb=1">
+                      </div>
+                    </div>
+                </div>
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/AF8OPvEgmQSz1oTXUFmKrgK9bcczagWA2sv2qRV7kUccEodSDzY_7ap19lV6E28my_SGvloPcjDfLVyRM2kItlUB-VJ1tEKE4WRPp12XJvxq9kNwOWj9-2xN640G612ZHX2rxQWrBHCUlCeE4QxyTYdpOJ0pQtbHAXpuov3UUHZWZKNHO70rjcTH3oBmJI1NL8k1ERUs_AGkzKsQ0Jtek9hNG1SX7Eh30stqvdFLz4gksz5kU74-nXH6iOsQUSphaKFn3cd0hf8rOZpvwJ08sHoqxZnuYOfLlGS5a6DDvHTFUw1WCnbPk92FksBeBTsnOXdapfEZAlkH8cIVE5VsBpf424e6_80eQA8HEIR7PVRJt9cYQ6F4wWuNcsDnsK2g_YxWiLvwE0Vx2mkgRmBkiQ4Ga_LzPy9iC-LgllZZ9LVeZIuRdE6f1CFhEOHDQkczW41EBdsL2Gkqgv3XUbAL40pwTi3yfRKz7z3L8iIuI2nTMQLWpoI8gvkE5ype7Cf_5wLko_nGmym48LzCSzknOSL8c9uds428NlJzzHCgXQ5nv2F9x3JDl-gsaO2qLiZryYaAimQJgtAsZaO5bfjWLnAnO4PFGisMRlkLRCsuSrrfON59Mj9j8saOgzlNQRQ4OJ8RNvrsay4vpXJda5H0il_vCRcqs8n88a1DUDIH1NaQabsXlJ1n6buJy4Rl=s958-no?authuser=0">
+                      </div>
+                      <div class="flip-box-back">
+                        <img class="textbox album" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthefirenote.com%2Fwp-content%2Fuploads%2F2018%2F05%2FParquetCourts_Wide_Awake_AlbumArt-1024x1024.jpg&f=1&nofb=1">
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 2%;"></div>
+            <div style="width: 25%;">
+                <div class="textbox" ><h3>64x64 LED Matrix</h3></div>
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/2ABQpJGSJqCavYMpbWpfsOzvPXfRVLwEmMwVgXXyRmtbU9HID-YfllPNvG8iYMgGTNq63nP_2skFzITSCUKggc_fsOi5dV-WVL61W2D7cThHuDKbNnyoWKJUX3M_TjFFXkID5apNWuXTeW8Y1ILfjzAXWdnqmmEWm_zcn2jrQcCqRk4m_zJjm3J1vzO8QsXZKJQ2bGdyfYEOnvbuyYy0NY-OZNPUbgJmNJayBwHe3ze1aq1kiwGWoPOKSiqOEcXZO6Sfv3evkRs8PkrqC5LcG00yNqAXGdGdj4pjLwZpHCAoBhQi4jSj3yPZfQE-L4P29vzIXBElARLYp8IQWpIc-tnzy-hpjwV8cLLER6tsFU_dUzhGeIF_70oBY8uaJkuPTIaHzn1iVnoJQwJsTeVPUmMkCD9iwk_YdARqjEglKqghNspJzGokeh_I3AzaXry45WX4OM3iL9xJFyFhPFzCuNy_kbRKYiVmXll1kTEsloKP2qHrEm-0Y-zIpiQKkgnql0NPIRWFJuGUWiILfoijC7_LvZbsXglyc1nSynSFQyuv231_LBuLxXgVyOIFGtfiH6fBtLSEfLdHtX2GVoX9_tP9O8jFk7hsVfs_LDlebrBVn48F7FdpmAw41HJP5rvMesE-qR-nkoKiH_3H2YQ6RGKpWQClCLINGq3ooZTcNVDECh6PYV8OB8QBs8-R=s958-no?authuser=0">
+                      </div>
+                      <div class="flip-box-back">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/7Zsl_J-DCygbpBqhx-KouUrT3qNNGgV5EJFb5yRUvkQsk3m-w_P5W15zXwddXLvgZg25sV9EoDLeij-VOe1ocX1wno1uNTzyIhc-r8-1TBShX6yEurX6F09EblnFF7fj_Oe5oVXgCQa1asv0bIwPc_A8RyZl3DfWlLi0UzQ61Efyfd32dSsG7KNMoSTsPt0x4bae0-FgyvH5_JQF3iTl-pBBER-K0ckX4jhcDFzc8JKR5j0Jn6-kbeJuc_ITFMyUjPxNctsENSKD0S-fJE7xvi6HUelxtzclpD4vkWG4h-SQxeJ9K_yYmGz6JZYYAYxZoy-oG88nMtv4FVgG_8bCh6rTYxmO9kIBY2weHDPSpNwM1Q-_v3y_TJp9ppVXOhkwqr5nJVi3lJNUQKbbalRLNYzx9x9KRrJKT9fMD3Lx4WvLlIe4vNROx0sgY2b-rXt9qFnHhQNSmlDM29DA7oMmSzk0663K8IOaVcR1FhfmBSfMnbqRPKxx-pefruk8O5d-L-K9XvicPQM1T80ThSAy3afLti6tIk1dSfc9BfzEKB1_L_OF8PlVHYcNCCx-nDxUOmVwqXz8aK5_TvEgvn7KToV57QSf_g6_RL4P3SRgoQAMNCzca_pfXTP5XdOV8cTqYeYpTdZ3pJQ_ZGqEUO2tN8nMo6wReEdkj4jZRAAHVYt4n4WP1hVOwjUo1zMo=s958-no?authuser=0">
+                      </div>
+                    </div>
+                </div>
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/FVMEOKYzKjfXNooMz6LbGWAYqC_oPvgSGCeMZ92V1hjxhmPDJu0tWKWJuLK_X38nGMhtIVkr7PMMbE1wjSk7-OF80I3hSm_6WrRWtLO7S5IQ1xc_Ywz4pMj_4x4EyGKWXRz-dcJZxX_Df-V7HejvgfABees9i_Jv3gA2oq2YGkvNsY4zyrTW4-dQrnvk_Qj4zU3VmI3V3VerL_snSwoY_TcXQ-DguoYCx7O-DvZxBcKd9VFzqt6QBTC6A6RNRZgZddGtlTKEoJ3kp5MpEaH8sRoPb-_QPbin0DDKBWMmENolzNwbJV7BWPE_Pi_efz2OsaIVmYEfHhSf3930DFW-JtNh1nyGnO9LARsMrM1xFo6Vi8X3LjAQ9dJ7r7OJyXv2c89IdG483y7_XABA4U_dB6gObFCZrMjY4a5gLQaBjWWHvFLJh2xgCo6xh-NIbdCDQn4jW7V7lNCIP1SpF4ah5uchxAep2zOSDyvpYWCvSWCx0IRdXiUQRcmZUbzRzNYbRRVQVENh8GqnuouRKiZ8U89n94L3F5XFgO60M9QRr1kc8_YZfTf8vO7r90dEB3zpqeqcu5Flrt3gG1JMhudpBweCLILKQqj2vzoO8CSneMphbBZTcvqA7fFZ59Vx3c8lYzS5v5FXr6V4qecWL6vaghli29bHNzj-FNhy2DPQML_Lyd9FGXMkW2sv1684=s958-no?authuser=0">
+                      </div>
+                      <div class="flip-box-back">
+                        <img class="textbox album" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.stereogum.com%2Fuploads%2F2020%2F05%2FJeff-Rosenstock-No-Dream-1589983860-640x640.jpg&f=1&nofb=1">
+                      </div>
+                    </div>
+                </div>
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/1JgEAceIhKjyfit8V-NPUzEWnOclDmwD7ZdTZiQNGCmssyGRf77w0L3Xb5AZVc0YDSWZ2Nknx8fECEN0YN_o5rJNs947O3-J7NXsr4I2Dw7qzDSUaaTKdh5T3wZVaQ44hBSg1O_1jfOcf-90iCgbkzjJilbQR_qPPl40jRP-5tVjVcEXL5gSAJidP6EC7-erg8dbKOdz44SP0mRU2XEU0s48QEtQsghOIX5_hYj6Z-iIQtZRHBm-HztbWjC1vAQhwtkrYy0QmQZUz3SyrD1g2N2D6gLTwNnpg-aAOG-Bs64r_rWSc9Lu8dd4R9ZC-VIQLhPKPRpuXDZ4n1iRYXh3g9-djEbNgsc37bMdyHx9PLAOLhXOZVCjLuKN2dyidhaxpLMbLGUcEj5u0InprK87MULE2eZ4bsg5rNs9BtMhqDuejcJ8EW0lTvAJrqUbjKSQ-cw5FC_DABHKM0W1z1d6EohdqNAKQJv-sJxCZSBEIOcokqbxraWKFLWjTO4Jyprp-QdYfiVch_93eBGSh0HrJ_yPyg1TqI1RyEFIZNiu0HvH2soA6hailn9cBq7kHpC8DrRNaCbzdNaLAhwJd1eRPyAOvGCYm-48RmCooiCcNDaAL8abyj8sAULmNjmS4c9O3tMlpz16Kfr2JAxSULHNcSHym_7hUb-Iip38kpbwKi9M7O00GbvvoofAOswK=s958-no?authuser=0">
+                      </div>
+                      <div class="flip-box-back">
+                        <img class="textbox album" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimagescdn.juno.co.uk%2Ffull%2FCS623861-01A-BIG.jpg&f=1&nofb=1">
+                      </div>
+                    </div>
+                </div>
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img class="textbox album" src="https://lh3.googleusercontent.com/v3L7MA9Tv0SzTrYcA7F6J7xZqeu7o5IQRY1sRi2dOKSMlWgc4zsBqTnK2ZkFkzYgA_6BGjSkTD-40g9XMDh4JOiG2ZWRFiWWw2C0zJOU4y97kPbXbx76EwhUqlV_XEhh8ILHTLNsjRh22jEdm8gmjFeCLsmSGwK87owoIHKPmhUmce_WtbCS5DbaPu0Yz3vafheGqcCXVXCn6jFu-ctiF_nPoV1auUy38QI-O3gHw86kNqliAknc-rnJV9YePyT-iX9awY-MnB7Zh_hK-z49sA7ORjx2-LTmv8nHC-wCi7tSQhBSwZoS6A-ba6LFSWGfQ5A8EKXGHPNOFg4-lt9zdh3mvP4IoxNt_u7kEyjHtwY1oNLItY_ITyscC18-m89dzEUyFIf6e0EyhQ2rAugfaInMS-8v8ojenKuXcwryiCFL0DyuWRCZtjec_ppXLX8uPpikJG10O11EwdmcyJ7SEEpZaj_CcTVb7J_49w6aBbR9x9xzQi_hu87aV8e-ij6oC38PGZxD9Z7ceB1nWWuP8pasFmn9CMGXNbmpHAXrbCNwedoCtjQf-co-m5CmgMcbsXJF4KPDY2ZgO35vuHWbnmi3j-QtUXpejmZ4BYwcf7yiM_01LrRsdt_MoaOT4gkHNy49q6sQTImgtjBsKq8ihlDrRQbbo3ry_to-k5hGOqu7S11cHm1EY_hrOoUC=s958-no?authuser=0">
+                      </div>
+                      <div class="flip-box-back">
+                        <img class="textbox album" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2F3lnkntuvzkdz.jpg&f=1&nofb=1">
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+    <footer>
 
-
-    <footer class="container">
-      
     </footer>
+</body>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
-</html>

@@ -1,21 +1,78 @@
-	h1 {
-        color: #333131;
-        font-weight:bold
-	}
-	p {
-        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-		color: #333131;
-    }
-    /* Move down content because we have a fixed navbar that is 3.5rem tall */
-    body {
-        background-color: #c9e1c6
-    }
-    .jumbotron {
-        background-color: 	#fdbcb4
-    }
-    .btn-secondary {
-        background-color: 	#fdbcb4
-    }
-    .bottem {
-        background-color: 	#9a9561 
-    }
+@font-face{
+    font-family: warhol;
+    src: url('./warhol.ttf');
+}
+
+body{
+    background-image: url("/faceBackground2.png");
+}
+
+h1,h2,h3,p{
+    font-family: warhol;
+}
+
+h1{
+    font-size: 4vw;
+}
+
+h2{
+    font-size: 2vw;
+}
+
+p{
+    font-size: 1.5vw;
+    line-height: 2.5vw;
+}
+
+img{
+    border-style: solid;
+}
+
+.textbox{
+    text-align: center;
+    background-color: rgba(255, 255, 255, .8);
+    box-shadow: 10px 10px;
+    border-style: solid;
+    margin-bottom: 1%;
+}
+
+.center{
+    margin-left: 10%;
+    width: 80%;
+}
+
+.album{
+    width: 100%;
+    height: auto;
+}
+
+.flip-box {
+    background-color: transparent;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+  
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-box-back {
+    transform: rotateY(180deg);
+  }

@@ -19,6 +19,10 @@ h2{
     font-size: 2vw;
 }
 
+h3{
+    font-size: 1.5vw;
+}
+
 p{
     font-size: 1.5vw;
     line-height: 2.5vw;
@@ -75,4 +79,19 @@ img{
   
   .flip-box-back {
     transform: rotateY(180deg);
+  }
+
+  .img_link{
+      width: 100px;
+      height: 100px;
+  }
+
+  .links{
+      display: flex;
+      justify-content:space-between;
+  }
+
+  .links a{
+    padding-left: 5%;
+    padding-right: 5%;
   }

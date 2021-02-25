@@ -40,14 +40,34 @@ img{
     margin-bottom: 1%;
 }
 
+.project{
+    width: 100%;
+    display: flex;
+    padding-bottom: 2%;
+} 
+
+.project-description{
+    width: 50%;
+    margin-right: 2% ;
+}
+
 .center{
     margin-left: 10%;
     width: 80%;
 }
 
+.sight-of-music-imgs{
+    width: 25%;
+    margin-left:  2%;
+}
+
 .album{
     width: 100%;
     height: auto;
+}
+
+.fractal-img{
+    width: 100%;
 }
 
 .flip-box {

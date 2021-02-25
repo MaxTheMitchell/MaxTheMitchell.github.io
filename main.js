@@ -4542,6 +4542,174 @@ var $author$project$HomePage$headerLinks = A2(
 			A2($author$project$HomePage$headerLink, '#projects', 'Projects')
 		]));
 var $elm$html$Html$main_ = _VirtualDom_node('main');
+var $author$project$HomePage$myGithubURL = function (project) {
+	return 'https://github.com/MaxTheMitchell/' + project;
+};
+var $elm$core$List$foldrHelper = F4(
+	function (fn, acc, ctr, ls) {
+		if (!ls.b) {
+			return acc;
+		} else {
+			var a = ls.a;
+			var r1 = ls.b;
+			if (!r1.b) {
+				return A2(fn, a, acc);
+			} else {
+				var b = r1.a;
+				var r2 = r1.b;
+				if (!r2.b) {
+					return A2(
+						fn,
+						a,
+						A2(fn, b, acc));
+				} else {
+					var c = r2.a;
+					var r3 = r2.b;
+					if (!r3.b) {
+						return A2(
+							fn,
+							a,
+							A2(
+								fn,
+								b,
+								A2(fn, c, acc)));
+					} else {
+						var d = r3.a;
+						var r4 = r3.b;
+						var res = (ctr > 500) ? A3(
+							$elm$core$List$foldl,
+							fn,
+							acc,
+							$elm$core$List$reverse(r4)) : A4($elm$core$List$foldrHelper, fn, acc, ctr + 1, r4);
+						return A2(
+							fn,
+							a,
+							A2(
+								fn,
+								b,
+								A2(
+									fn,
+									c,
+									A2(fn, d, res))));
+					}
+				}
+			}
+		}
+	});
+var $elm$core$List$foldr = F3(
+	function (fn, acc, ls) {
+		return A4($elm$core$List$foldrHelper, fn, acc, 0, ls);
+	});
+var $elm$core$List$map = F2(
+	function (f, xs) {
+		return A3(
+			$elm$core$List$foldr,
+			F2(
+				function (x, acc) {
+					return A2(
+						$elm$core$List$cons,
+						f(x),
+						acc);
+				}),
+			_List_Nil,
+			xs);
+	});
+var $author$project$HomePage$projectDescription = F3(
+	function (title, desc, links) {
+		return A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('textbox project-description')
+				]),
+			_Utils_ap(
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$h2,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text(title)
+							])),
+						A2($elm$html$Html$hr, _List_Nil, _List_Nil),
+						A2($elm$html$Html$p, _List_Nil, desc),
+						A2($elm$html$Html$hr, _List_Nil, _List_Nil)
+					]),
+				A2(
+					$elm$core$List$map,
+					function (_v0) {
+						var link = _v0.a;
+						var display = _v0.b;
+						return A2(
+							$elm$html$Html$a,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$href(link)
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$h3,
+									_List_Nil,
+									_List_fromArray(
+										[
+											$elm$html$Html$text(display)
+										]))
+								]));
+					},
+					links)));
+	});
+var $author$project$HomePage$fractalsDescription = A3(
+	$author$project$HomePage$projectDescription,
+	'Fractal Fun',
+	_List_fromArray(
+		[
+			$elm$html$Html$text('\n        One of my favorite things to program in my free time are visualizations of mathematical phenomena. \n        I love seeing how relatively simple mathematical principals can generate complex and beautiful results. \n        Here is a collection of such mathematical visualizations that I have done, mostly of fractals, but also of different mathematical visualizations such as cellular automata. \n        ')
+		]),
+	_List_fromArray(
+		[
+			_Utils_Tuple2(
+			$author$project$HomePage$myGithubURL('Mandelbrot-Set'),
+			'Mandelbrot Set Fractals Code')
+		]));
+var $author$project$HomePage$fractals = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$class('project')
+		]),
+	_List_fromArray(
+		[
+			$author$project$HomePage$fractalsDescription,
+			A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'width', '50%'),
+					A2($elm$html$Html$Attributes$style, 'position', 'relative')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$author$project$HomePage$imgSrc('Mandelbrot17.png'),
+							$elm$html$Html$Attributes$class('fractal-img')
+						]),
+					_List_Nil),
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$author$project$HomePage$imgSrc('Mandelbrot10.png'),
+							$elm$html$Html$Attributes$class('fractal-img')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $author$project$HomePage$flipBox = F2(
 	function (frontSrc, backSrc) {
 		return A2(
@@ -4601,7 +4769,7 @@ var $author$project$HomePage$sightOfMusic16Imgs = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
 		[
-			A2($elm$html$Html$Attributes$style, 'width', '25%')
+			$elm$html$Html$Attributes$class('sight-of-music-imgs')
 		]),
 	_List_fromArray(
 		[
@@ -4642,7 +4810,7 @@ var $author$project$HomePage$sightOfMusic64Imgs = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
 		[
-			A2($elm$html$Html$Attributes$style, 'width', '25%')
+			$elm$html$Html$Attributes$class('sight-of-music-imgs')
 		]),
 	_List_fromArray(
 		[
@@ -4679,102 +4847,12 @@ var $author$project$HomePage$sightOfMusic64Imgs = A2(
 			$author$project$HomePage$imgSrc('drunk.jpg'),
 			$elm$html$Html$Attributes$src('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2F3lnkntuvzkdz.jpg&f=1&nofb=1'))
 		]));
-var $author$project$HomePage$myGithubURL = function (project) {
-	return 'https://github.com/MaxTheMitchell/' + project;
-};
-var $author$project$HomePage$sightOfMusicDescription = A2(
-	$elm$html$Html$div,
+var $author$project$HomePage$sightOfMusicDescription = A3(
+	$author$project$HomePage$projectDescription,
+	'The Sight if Music',
 	_List_fromArray(
 		[
-			$elm$html$Html$Attributes$class('textbox'),
-			A2($elm$html$Html$Attributes$style, 'width', '50%')
-		]),
-	_List_fromArray(
-		[
-			A2(
-			$elm$html$Html$h2,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text('The Sight if Music')
-				])),
-			A2($elm$html$Html$hr, _List_Nil, _List_Nil),
-			A2(
-			$elm$html$Html$p,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text('\n                The "Sight of Music" is a project I initially had the idea for while working at Sycamore-Semi where I was working on pulling data from web API\'s using a micro-controller to display \n                the status of different Fab equipment. Working on this birthed the idea in me that I could use Spotify\'s Web API to get the album cover of my currently playing song and \n                use that data to create some sort of display. The first thing I did was to create a \n                '),
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href(
-							$author$project$HomePage$myGithubURL('the-sight-of-music-server'))
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('website')
-						])),
-					$elm$html$Html$text('\n                that would allow a user to authorize the website to read their Spotify data and to then parse \n                this data into a bitmap for a micro-controller to use. Next I started working on the display. The first thing I used to make the display was a \n                '),
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href('https://www.amazon.com/gp/product/B01CDTEJBG/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&psc=1')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('strip of 300 led lights')
-						])),
-					$elm$html$Html$text('that I cut up and soldered into a 16x16 grid. I then created a '),
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href(
-							$author$project$HomePage$myGithubURL('sight-of-music-64x64-Grid-esp32'))
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('program')
-						])),
-					$elm$html$Html$text(' for an '),
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href('https://www.amazon.com/HiLetgo-Internet-Development-Wireless-Micropython/dp/B081CSJV2V/ref=sxts_sxwds-bia-wc-p13n1_0?cv_ct_cx=ESP8266&dchild=1&keywords=ESP8266&pd_rd_i=B081CSJV2V&pd_rd_r=b2bb2c5b-e9b8-4e75-ae58-e34d169199c8&pd_rd_w=NGANN&pd_rd_wg=FrshL&pf_rd_p=13bf9bc7-d68d-44c3-9d2e-647020f56802&pf_rd_r=XF3FABJ7YQ2CHENP1C30&psc=1&qid=1597975271&sr=1-1-791c2399-d602-4248-afbb-8a79de2d236f')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('esp8266')
-						])),
-					$elm$html$Html$text('\n                that would issue get requests to the website I made and uses the bitmap that it received to make the display. This method worked pretty well for \n                simple album covers, but for album covers that were more complex a 16x16 grid wouldn\'t cut it. So then I ordered a \n                '),
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href('https://www.aliexpress.com/item/32381602322.html?spm=a2g0o.productlist.0.0.762174dbdchDnn&algo_pvid=d5900aa2-f4b9-441c-8558-c476d9b70dfb&algo_expid=d5900aa2-f4b9-441c-8558-c476d9b70dfb-0&btsid=0ab6d67915979748091914913e75c3&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('64x64 led matrix')
-						])),
-					$elm$html$Html$text(' and upgraded to an '),
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href('https://www.amazon.com/gp/product/B07Q576VWZ/ref=ppx_yo_dt_b_asin_title_o01_s01?ie=UTF8&psc=1')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('esp32')
-						])),
-					$elm$html$Html$text(' because the greater amount of LEDs warranted a better CPU. I was really happy with the results that the 64x64 matrix gave.')
-				])),
-			A2($elm$html$Html$hr, _List_Nil, _List_Nil),
+			$elm$html$Html$text('\n        The "Sight of Music" is a project I initially had the idea for while working at Sycamore-Semi where I was working on pulling data from web API\'s using a micro-controller to display \n        the status of different Fab equipment. Working on this birthed the idea in me that I could use Spotify\'s Web API to get the album cover of my currently playing song and \n        use that data to create some sort of display. The first thing I did was to create a \n        '),
 			A2(
 			$elm$html$Html$a,
 			_List_fromArray(
@@ -4784,31 +4862,20 @@ var $author$project$HomePage$sightOfMusicDescription = A2(
 				]),
 			_List_fromArray(
 				[
-					A2(
-					$elm$html$Html$h3,
-					_List_Nil,
-					_List_fromArray(
-						[
-							$elm$html$Html$text('Server Code')
-						]))
+					$elm$html$Html$text('website')
 				])),
+			$elm$html$Html$text('\n        that would allow a user to authorize the website to read their Spotify data and to then parse \n        this data into a bitmap for a micro-controller to use. Next I started working on the display. The first thing I used to make the display was a \n        '),
 			A2(
 			$elm$html$Html$a,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$href(
-					$author$project$HomePage$myGithubURL('sight-of-music-ESP8266-client'))
+					$elm$html$Html$Attributes$href('https://www.amazon.com/gp/product/B01CDTEJBG/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&psc=1')
 				]),
 			_List_fromArray(
 				[
-					A2(
-					$elm$html$Html$h3,
-					_List_Nil,
-					_List_fromArray(
-						[
-							$elm$html$Html$text('ESP8266 16x16 Matrix Client Code')
-						]))
+					$elm$html$Html$text('strip of 300 led lights')
 				])),
+			$elm$html$Html$text('that I cut up and soldered into a 16x16 grid. I then created a '),
 			A2(
 			$elm$html$Html$a,
 			_List_fromArray(
@@ -4818,42 +4885,72 @@ var $author$project$HomePage$sightOfMusicDescription = A2(
 				]),
 			_List_fromArray(
 				[
-					A2(
-					$elm$html$Html$h3,
-					_List_Nil,
-					_List_fromArray(
-						[
-							$elm$html$Html$text('ESP32 64x64 Matrix Client Code')
-						]))
-				]))
+					$elm$html$Html$text('program')
+				])),
+			$elm$html$Html$text(' for an '),
+			A2(
+			$elm$html$Html$a,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$href('https://www.amazon.com/HiLetgo-Internet-Development-Wireless-Micropython/dp/B081CSJV2V/ref=sxts_sxwds-bia-wc-p13n1_0?cv_ct_cx=ESP8266&dchild=1&keywords=ESP8266&pd_rd_i=B081CSJV2V&pd_rd_r=b2bb2c5b-e9b8-4e75-ae58-e34d169199c8&pd_rd_w=NGANN&pd_rd_wg=FrshL&pf_rd_p=13bf9bc7-d68d-44c3-9d2e-647020f56802&pf_rd_r=XF3FABJ7YQ2CHENP1C30&psc=1&qid=1597975271&sr=1-1-791c2399-d602-4248-afbb-8a79de2d236f')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('esp8266')
+				])),
+			$elm$html$Html$text('\n        that would issue get requests to the website I made and uses the bitmap that it received to make the display. This method worked pretty well for \n        simple album covers, but for album covers that were more complex a 16x16 grid wouldn\'t cut it. So then I ordered a \n        '),
+			A2(
+			$elm$html$Html$a,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$href('https://www.aliexpress.com/item/32381602322.html?spm=a2g0o.productlist.0.0.762174dbdchDnn&algo_pvid=d5900aa2-f4b9-441c-8558-c476d9b70dfb&algo_expid=d5900aa2-f4b9-441c-8558-c476d9b70dfb-0&btsid=0ab6d67915979748091914913e75c3&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('64x64 led matrix')
+				])),
+			$elm$html$Html$text(' and upgraded to an '),
+			A2(
+			$elm$html$Html$a,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$href('https://www.amazon.com/gp/product/B07Q576VWZ/ref=ppx_yo_dt_b_asin_title_o01_s01?ie=UTF8&psc=1')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('esp32')
+				])),
+			$elm$html$Html$text(' because the greater amount of LEDs warranted a better CPU. I was really happy with the results that the 64x64 matrix gave.')
+		]),
+	_List_fromArray(
+		[
+			_Utils_Tuple2(
+			$author$project$HomePage$myGithubURL('the-sight-of-music-server'),
+			'Server Code'),
+			_Utils_Tuple2(
+			$author$project$HomePage$myGithubURL('sight-of-music-ESP8266-client'),
+			'ESP8266 16x16 Matrix Client Code'),
+			_Utils_Tuple2(
+			$author$project$HomePage$myGithubURL('sight-of-music-64x64-Grid-esp32'),
+			'ESP32 64x64 Matrix Client Code')
 		]));
+var $author$project$HomePage$sightOfMusic = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$class('project')
+		]),
+	_List_fromArray(
+		[$author$project$HomePage$sightOfMusicDescription, $author$project$HomePage$sightOfMusic16Imgs, $author$project$HomePage$sightOfMusic64Imgs]));
 var $author$project$HomePage$projects = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
 		[
-			$elm$html$Html$Attributes$class('center'),
-			A2($elm$html$Html$Attributes$style, 'display', 'flex')
+			$elm$html$Html$Attributes$id('projects'),
+			$elm$html$Html$Attributes$class('center')
 		]),
 	_List_fromArray(
-		[
-			$author$project$HomePage$sightOfMusicDescription,
-			A2(
-			$elm$html$Html$div,
-			_List_fromArray(
-				[
-					A2($elm$html$Html$Attributes$style, 'width', '3%')
-				]),
-			_List_Nil),
-			$author$project$HomePage$sightOfMusic16Imgs,
-			A2(
-			$elm$html$Html$div,
-			_List_fromArray(
-				[
-					A2($elm$html$Html$Attributes$style, 'width', '3%')
-				]),
-			_List_Nil),
-			$author$project$HomePage$sightOfMusic64Imgs
-		]));
+		[$author$project$HomePage$sightOfMusic, $author$project$HomePage$fractals]));
 var $author$project$HomePage$main = A2(
 	$elm$html$Html$main_,
 	_List_Nil,

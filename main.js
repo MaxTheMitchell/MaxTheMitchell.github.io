@@ -4695,7 +4695,7 @@ var $author$project$HomePage$fractals = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$author$project$HomePage$imgSrc('Mandelbrot17.png'),
+							$author$project$HomePage$imgSrc('Mandelbrot1.gif'),
 							$elm$html$Html$Attributes$class('fractal-img')
 						]),
 					_List_Nil),
@@ -4704,6 +4704,14 @@ var $author$project$HomePage$fractals = A2(
 					_List_fromArray(
 						[
 							$author$project$HomePage$imgSrc('Mandelbrot10.png'),
+							$elm$html$Html$Attributes$class('fractal-img')
+						]),
+					_List_Nil),
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$author$project$HomePage$imgSrc('Mandelbrot16.png'),
 							$elm$html$Html$Attributes$class('fractal-img')
 						]),
 					_List_Nil)

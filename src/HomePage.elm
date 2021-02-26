@@ -82,8 +82,9 @@ fractals =
       fractalsDescription
       ,div [style "width" "50%", style "position" "relative"]
         [
-          img[imgSrc "Mandelbrot17.png", class "fractal-img" ][]
+          img[imgSrc "Mandelbrot1.gif", class "fractal-img" ][]
           ,img[imgSrc "Mandelbrot10.png", class "fractal-img"][]
+          ,img[imgSrc "Mandelbrot16.png", class "fractal-img"][]
         ]
     ]
 

@@ -63,7 +63,29 @@ projects =
   div [ id "projects", class "center" ]
     [
       sightOfMusic
+      ,tempest
       ,fractals
+    ]
+
+tempest : Html msg 
+tempest =
+  div[class "project"]
+    [
+      (projectDescription 
+          "Tempest 2001" 
+          [text 
+          """
+          This is my attempt to create a game inspired by tempest 2000 in the web browser. 
+          It is written in a Elm, a Javascript framework that transforms Javascript into a pure functional language.
+          It is currently a work in progress, but you can try out what I've done thus far! 
+          It controls using the arrow key to move and the space bar to move.
+          """
+          ]
+          [
+            ("/tempest.html", "Play in Full Screen")
+            ,(myGithubURL "Tempest-Clone", "Tempest Repo")
+          ])
+      ,  iframe[src "/tempest.html", class "tempest-frame textbox"][] 
     ]
 
 sightOfMusic : Html msg

@@ -51,6 +51,15 @@ img{
     margin-right: 2% ;
 }
 
+.tempest-div {
+    width: 50%;
+}
+
+.tempest-frame{
+    width: 49%;
+    /* height: 100%; */
+}
+
 .center{
     margin-left: 10%;
     width: 80%;
@@ -76,42 +85,42 @@ img{
     padding-bottom: 100%;
   }
   
-  .flip-box-inner {
-    position: relative;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  .flip-box:hover .flip-box-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-box-front, .flip-box-back {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  .flip-box-back {
-    transform: rotateY(180deg);
-  }
+.flip-box-inner {
+position: relative;
+width: 100%;
+height: auto;
+text-align: center;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+}
 
-  .img_link{
-      width: 100px;
-      height: 100px;
-  }
+.flip-box:hover .flip-box-inner {
+transform: rotateY(180deg);
+}
 
-  .links{
-      display: flex;
-      justify-content:space-between;
-  }
+.flip-box-front, .flip-box-back {
+position: absolute;
+width: 100%;
+height: auto;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+}
 
-  .links a{
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+.flip-box-back {
+transform: rotateY(180deg);
+}
+
+.img_link{
+    width: 100px;
+    height: 100px;
+}
+
+.links{
+    display: flex;
+    justify-content:space-between;
+}
+
+.links a{
+padding-left: 5%;
+padding-right: 5%;
+}

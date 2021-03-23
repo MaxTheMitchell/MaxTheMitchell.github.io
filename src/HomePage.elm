@@ -78,7 +78,7 @@ tempest =
           This is my attempt to create a game inspired by tempest 2000 in the web browser. 
           It is written in a Elm, a Javascript framework that transforms Javascript into a pure functional language.
           It is currently a work in progress, but you can try out what I've done thus far! 
-          It controls using the arrow key to move and the space bar to move.
+          It controls using the arrow key to move and the space bar to shoot.
           """
           ]
           [

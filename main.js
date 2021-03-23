@@ -4964,7 +4964,7 @@ var $author$project$HomePage$tempest = A2(
 			'Tempest 2001',
 			_List_fromArray(
 				[
-					$elm$html$Html$text('\n          This is my attempt to create a game inspired by tempest 2000 in the web browser. \n          It is written in a Elm, a Javascript framework that transforms Javascript into a pure functional language.\n          It is currently a work in progress, but you can try out what I\'ve done thus far! \n          It controls using the arrow key to move and the space bar to move.\n          ')
+					$elm$html$Html$text('\n          This is my attempt to create a game inspired by tempest 2000 in the web browser. \n          It is written in a Elm, a Javascript framework that transforms Javascript into a pure functional language.\n          It is currently a work in progress, but you can try out what I\'ve done thus far! \n          It controls using the arrow key to move and the space bar to shoot.\n          ')
 				]),
 			_List_fromArray(
 				[

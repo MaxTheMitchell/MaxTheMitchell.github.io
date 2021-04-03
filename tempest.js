@@ -519,11 +519,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.ac.E === region.aj.E)
+	if (region.ae.I === region.al.I)
 	{
-		return 'on line ' + region.ac.E;
+		return 'on line ' + region.ae.I;
 	}
-	return 'on lines ' + region.ac.E + ' through ' + region.aj.E;
+	return 'on lines ' + region.ae.I + ' through ' + region.al.I;
 }
 
 
@@ -1857,9 +1857,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.ao,
-		impl.aI,
-		impl.a0,
+		impl.aq,
+		impl.aK,
+		impl.a2,
 		function() { return function() {} }
 	);
 });
@@ -2704,9 +2704,9 @@ var _VirtualDom_mapEventTuple = F2(function(func, tuple)
 var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
-		r: func(record.r),
-		ad: record.ad,
-		_: record._
+		t: func(record.t),
+		af: record.af,
+		ab: record.ab
 	}
 });
 
@@ -2974,11 +2974,11 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		// 3 = Custom
 
 		var value = result.a;
-		var message = !tag ? value : tag < 3 ? value.a : value.r;
-		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.ad;
+		var message = !tag ? value : tag < 3 ? value.a : value.t;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.af;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-			(tag == 2 ? value.b : tag == 3 && value._) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.ab) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -3928,11 +3928,11 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.ao,
-		impl.aI,
-		impl.a0,
+		impl.aq,
+		impl.aK,
+		impl.a2,
 		function(sendToApp, initialModel) {
-			var view = impl.aJ;
+			var view = impl.aL;
 			/**/
 			var domNode = args['node'];
 			//*/
@@ -3964,12 +3964,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.ao,
-		impl.aI,
-		impl.a0,
+		impl.aq,
+		impl.aK,
+		impl.a2,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.aa && impl.aa(sendToApp)
-			var view = impl.aJ;
+			var divertHrefToApp = impl.ac && impl.ac(sendToApp)
+			var view = impl.aL;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -3977,12 +3977,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aO);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aQ);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.a1) && (_VirtualDom_doc.title = title = doc.a1);
+				(title !== doc.a3) && (_VirtualDom_doc.title = title = doc.a3);
 			});
 		}
 	);
@@ -4038,12 +4038,12 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.aX;
-	var onUrlRequest = impl.aY;
+	var onUrlChange = impl.aZ;
+	var onUrlRequest = impl.a_;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		aa: function(sendToApp)
+		ac: function(sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4059,9 +4059,9 @@ function _Browser_application(impl)
 					var next = $elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.az === next.az
-							&& curr.an === next.an
-							&& curr.au.a === next.au.a
+							&& curr.aB === next.aB
+							&& curr.ap === next.ap
+							&& curr.aw.a === next.aw.a
 						)
 							? $elm$browser$Browser$Internal(next)
 							: $elm$browser$Browser$External(href)
@@ -4069,13 +4069,13 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		ao: function(flags)
+		aq: function(flags)
 		{
-			return A3(impl.ao, flags, _Browser_getUrl(), key);
+			return A3(impl.aq, flags, _Browser_getUrl(), key);
 		},
-		aJ: impl.aJ,
-		aI: impl.aI,
-		a0: impl.a0
+		aL: impl.aL,
+		aK: impl.aK,
+		a2: impl.a2
 	});
 }
 
@@ -4141,17 +4141,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { aT: 'hidden', aP: 'visibilitychange' }
+		? { aV: 'hidden', aR: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { aT: 'mozHidden', aP: 'mozvisibilitychange' }
+		? { aV: 'mozHidden', aR: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { aT: 'msHidden', aP: 'msvisibilitychange' }
+		? { aV: 'msHidden', aR: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { aT: 'webkitHidden', aP: 'webkitvisibilitychange' }
-		: { aT: 'hidden', aP: 'visibilitychange' };
+		? { aV: 'webkitHidden', aR: 'webkitvisibilitychange' }
+		: { aV: 'hidden', aR: 'visibilitychange' };
 }
 
 
@@ -4232,12 +4232,12 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		aD: _Browser_getScene(),
-		aK: {
-			aL: _Browser_window.pageXOffset,
-			P: _Browser_window.pageYOffset,
-			a2: _Browser_doc.documentElement.clientWidth,
-			am: _Browser_doc.documentElement.clientHeight
+		aF: _Browser_getScene(),
+		aM: {
+			aN: _Browser_window.pageXOffset,
+			V: _Browser_window.pageYOffset,
+			a4: _Browser_doc.documentElement.clientWidth,
+			ao: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4247,8 +4247,8 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-		a2: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-		am: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		a4: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		ao: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4271,15 +4271,15 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			aD: {
-				a2: node.scrollWidth,
-				am: node.scrollHeight
+			aF: {
+				a4: node.scrollWidth,
+				ao: node.scrollHeight
 			},
-			aK: {
-				aL: node.scrollLeft,
-				P: node.scrollTop,
-				a2: node.clientWidth,
-				am: node.clientHeight
+			aM: {
+				aN: node.scrollLeft,
+				V: node.scrollTop,
+				a4: node.clientWidth,
+				ao: node.clientHeight
 			}
 		};
 	});
@@ -4309,18 +4309,18 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			aD: _Browser_getScene(),
-			aK: {
-				aL: x,
-				P: y,
-				a2: _Browser_doc.documentElement.clientWidth,
-				am: _Browser_doc.documentElement.clientHeight
+			aF: _Browser_getScene(),
+			aM: {
+				aN: x,
+				V: y,
+				a4: _Browser_doc.documentElement.clientWidth,
+				ao: _Browser_doc.documentElement.clientHeight
 			},
-			aR: {
-				aL: x + rect.left,
-				P: y + rect.top,
-				a2: rect.width,
-				am: rect.height
+			aT: {
+				aN: x + rect.left,
+				V: y + rect.top,
+				a4: rect.width,
+				ao: rect.height
 			}
 		};
 	});
@@ -4393,7 +4393,7 @@ var _Bitwise_shiftRightZfBy = F2(function(offset, a)
 	return a >>> offset;
 });
 var $author$project$Main$Memory = function (levels) {
-	return {W: levels};
+	return {Q: levels};
 };
 var $elm$core$List$cons = _List_cons;
 var $elm$core$Elm$JsArray$foldr = _JsArray_foldr;
@@ -4910,7 +4910,7 @@ var $elm$url$Url$Http = 0;
 var $elm$url$Url$Https = 1;
 var $elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {al: fragment, an: host, as: path, au: port_, az: protocol, aA: query};
+		return {an: fragment, ap: host, au: path, aw: port_, aB: protocol, aC: query};
 	});
 var $elm$core$String$contains = _String_contains;
 var $elm$core$String$length = _String_length;
@@ -5216,7 +5216,7 @@ var $elm$browser$Browser$AnimationManager$Time = function (a) {
 };
 var $elm$browser$Browser$AnimationManager$State = F3(
 	function (subs, request, oldTime) {
-		return {Y: oldTime, aC: request, aG: subs};
+		return {aa: oldTime, aE: request, aI: subs};
 	});
 var $elm$browser$Browser$AnimationManager$init = $elm$core$Task$succeed(
 	A3($elm$browser$Browser$AnimationManager$State, _List_Nil, $elm$core$Maybe$Nothing, 0));
@@ -5227,8 +5227,8 @@ var $elm$core$Platform$sendToSelf = _Platform_sendToSelf;
 var $elm$core$Process$spawn = _Scheduler_spawn;
 var $elm$browser$Browser$AnimationManager$onEffects = F3(
 	function (router, subs, _v0) {
-		var request = _v0.aC;
-		var oldTime = _v0.Y;
+		var request = _v0.aE;
+		var oldTime = _v0.aa;
 		var _v1 = _Utils_Tuple2(request, subs);
 		if (_v1.a.$ === 1) {
 			if (!_v1.b.b) {
@@ -5276,8 +5276,8 @@ var $elm$time$Time$Posix = $elm$core$Basics$identity;
 var $elm$time$Time$millisToPosix = $elm$core$Basics$identity;
 var $elm$browser$Browser$AnimationManager$onSelfMsg = F3(
 	function (router, newTime, _v0) {
-		var subs = _v0.aG;
-		var oldTime = _v0.Y;
+		var subs = _v0.aI;
+		var oldTime = _v0.aa;
 		var send = function (sub) {
 			if (!sub.$) {
 				var tagger = sub.a;
@@ -5350,7 +5350,7 @@ var $elm$browser$Browser$Events$MySub = F3(
 	});
 var $elm$browser$Browser$Events$State = F2(
 	function (subs, pids) {
-		return {at: pids, aG: subs};
+		return {av: pids, aI: subs};
 	});
 var $elm$core$Dict$RBEmpty_elm_builtin = {$: -2};
 var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
@@ -5581,7 +5581,7 @@ var $elm$core$Dict$merge = F6(
 	});
 var $elm$browser$Browser$Events$Event = F2(
 	function (key, event) {
-		return {ak: event, ap: key};
+		return {am: event, ar: key};
 	});
 var $elm$browser$Browser$Events$spawn = F3(
 	function (router, key, _v0) {
@@ -5655,7 +5655,7 @@ var $elm$browser$Browser$Events$onEffects = F3(
 			stepLeft,
 			stepBoth,
 			stepRight,
-			state.at,
+			state.av,
 			$elm$core$Dict$fromList(newSubs),
 			_Utils_Tuple3(_List_Nil, $elm$core$Dict$empty, _List_Nil));
 		var deadPids = _v0.a;
@@ -5701,8 +5701,8 @@ var $elm$core$List$filterMap = F2(
 	});
 var $elm$browser$Browser$Events$onSelfMsg = F3(
 	function (router, _v0, state) {
-		var key = _v0.ap;
-		var event = _v0.ak;
+		var key = _v0.ar;
+		var event = _v0.am;
 		var toMessage = function (_v2) {
 			var subKey = _v2.a;
 			var _v3 = _v2.b;
@@ -5711,7 +5711,7 @@ var $elm$browser$Browser$Events$onSelfMsg = F3(
 			var decoder = _v3.c;
 			return _Utils_eq(subKey, key) ? A2(_Browser_decodeEvent, decoder, event) : $elm$core$Maybe$Nothing;
 		};
-		var messages = A2($elm$core$List$filterMap, toMessage, state.aG);
+		var messages = A2($elm$core$List$filterMap, toMessage, state.aI);
 		return A2(
 			$elm$core$Task$andThen,
 			function (_v1) {
@@ -5775,14 +5775,14 @@ var $elm$browser$Browser$Events$onVisibilityChange = function (func) {
 	return A3(
 		$elm$browser$Browser$Events$on,
 		0,
-		info.aP,
+		info.aR,
 		A2(
 			$elm$json$Json$Decode$map,
 			$elm$browser$Browser$Events$withHidden(func),
 			A2(
 				$elm$json$Json$Decode$field,
 				'target',
-				A2($elm$json$Json$Decode$field, info.aT, $elm$json$Json$Decode$bool))));
+				A2($elm$json$Json$Decode$field, info.aV, $elm$json$Json$Decode$bool))));
 };
 var $elm$json$Json$Decode$string = _Json_decodeString;
 var $evancz$elm_playground$Playground$gameSubscriptions = $elm$core$Platform$Sub$batch(
@@ -5818,36 +5818,36 @@ var $evancz$elm_playground$Playground$gameSubscriptions = $elm$core$Platform$Sub
 		]));
 var $evancz$elm_playground$Playground$Mouse = F4(
 	function (x, y, down, click) {
-		return {S: click, aQ: down, aL: x, P: y};
+		return {Y: click, aS: down, aN: x, V: y};
 	});
 var $evancz$elm_playground$Playground$Time = $elm$core$Basics$identity;
 var $elm$core$Set$Set_elm_builtin = $elm$core$Basics$identity;
 var $elm$core$Set$empty = $elm$core$Dict$empty;
-var $evancz$elm_playground$Playground$emptyKeyboard = {Q: false, aQ: false, T: false, g: $elm$core$Set$empty, q: false, A: false, ab: false, a$: false, O: false};
+var $evancz$elm_playground$Playground$emptyKeyboard = {W: false, aS: false, Z: false, g: $elm$core$Set$empty, s: false, E: false, ad: false, a1: false, T: false};
 var $evancz$elm_playground$Playground$mouseClick = F2(
 	function (bool, mouse) {
 		return _Utils_update(
 			mouse,
-			{S: bool});
+			{Y: bool});
 	});
 var $evancz$elm_playground$Playground$mouseDown = F2(
 	function (bool, mouse) {
 		return _Utils_update(
 			mouse,
-			{aQ: bool});
+			{aS: bool});
 	});
 var $evancz$elm_playground$Playground$mouseMove = F3(
 	function (x, y, mouse) {
 		return _Utils_update(
 			mouse,
-			{aL: x, P: y});
+			{aN: x, V: y});
 	});
 var $elm$core$Basics$negate = function (n) {
 	return -n;
 };
 var $evancz$elm_playground$Playground$toScreen = F2(
 	function (width, height) {
-		return {R: (-height) / 2, am: height, q: (-width) / 2, A: width / 2, ae: height / 2, a2: width};
+		return {X: (-height) / 2, ao: height, s: (-width) / 2, E: width / 2, ag: height / 2, a4: width};
 	});
 var $elm$core$Set$insert = F2(
 	function (key, _v0) {
@@ -6228,35 +6228,35 @@ var $evancz$elm_playground$Playground$updateKeyboard = F3(
 			case ' ':
 				return _Utils_update(
 					keyboard,
-					{g: keys, a$: isDown});
+					{g: keys, a1: isDown});
 			case 'Enter':
 				return _Utils_update(
 					keyboard,
-					{T: isDown, g: keys});
+					{Z: isDown, g: keys});
 			case 'Shift':
 				return _Utils_update(
 					keyboard,
-					{g: keys, ab: isDown});
+					{g: keys, ad: isDown});
 			case 'Backspace':
 				return _Utils_update(
 					keyboard,
-					{Q: isDown, g: keys});
+					{W: isDown, g: keys});
 			case 'ArrowUp':
 				return _Utils_update(
 					keyboard,
-					{g: keys, O: isDown});
+					{g: keys, T: isDown});
 			case 'ArrowDown':
 				return _Utils_update(
 					keyboard,
-					{aQ: isDown, g: keys});
+					{aS: isDown, g: keys});
 			case 'ArrowLeft':
 				return _Utils_update(
 					keyboard,
-					{g: keys, q: isDown});
+					{g: keys, s: isDown});
 			case 'ArrowRight':
 				return _Utils_update(
 					keyboard,
-					{g: keys, A: isDown});
+					{g: keys, E: isDown});
 			default:
 				return _Utils_update(
 					keyboard,
@@ -6275,16 +6275,16 @@ var $evancz$elm_playground$Playground$gameUpdate = F3(
 					$evancz$elm_playground$Playground$Game,
 					vis,
 					A2(updateMemory, computer, memory),
-					computer.f.S ? _Utils_update(
+					computer.f.Y ? _Utils_update(
 						computer,
 						{
 							f: A2($evancz$elm_playground$Playground$mouseClick, false, computer.f),
-							N: time
+							S: time
 						}) : _Utils_update(
 						computer,
-						{N: time}));
+						{S: time}));
 			case 2:
-				var viewport = msg.a.aK;
+				var viewport = msg.a.aM;
 				return A3(
 					$evancz$elm_playground$Playground$Game,
 					vis,
@@ -6292,7 +6292,7 @@ var $evancz$elm_playground$Playground$gameUpdate = F3(
 					_Utils_update(
 						computer,
 						{
-							aE: A2($evancz$elm_playground$Playground$toScreen, viewport.a2, viewport.am)
+							aG: A2($evancz$elm_playground$Playground$toScreen, viewport.a4, viewport.ao)
 						}));
 			case 3:
 				var w = msg.a;
@@ -6304,7 +6304,7 @@ var $evancz$elm_playground$Playground$gameUpdate = F3(
 					_Utils_update(
 						computer,
 						{
-							aE: A2($evancz$elm_playground$Playground$toScreen, w, h)
+							aG: A2($evancz$elm_playground$Playground$toScreen, w, h)
 						}));
 			case 0:
 				var isDown = msg.a;
@@ -6316,13 +6316,13 @@ var $evancz$elm_playground$Playground$gameUpdate = F3(
 					_Utils_update(
 						computer,
 						{
-							aV: A3($evancz$elm_playground$Playground$updateKeyboard, isDown, key, computer.aV)
+							aX: A3($evancz$elm_playground$Playground$updateKeyboard, isDown, key, computer.aX)
 						}));
 			case 5:
 				var pageX = msg.a;
 				var pageY = msg.b;
-				var y = computer.aE.ae - pageY;
-				var x = computer.aE.q + pageX;
+				var y = computer.aG.ag - pageY;
+				var x = computer.aG.s + pageX;
 				return A3(
 					$evancz$elm_playground$Playground$Game,
 					vis,
@@ -6362,17 +6362,17 @@ var $evancz$elm_playground$Playground$gameUpdate = F3(
 					_Utils_update(
 						computer,
 						{
-							aV: $evancz$elm_playground$Playground$emptyKeyboard,
-							f: A4($evancz$elm_playground$Playground$Mouse, computer.f.aL, computer.f.P, false, false)
+							aX: $evancz$elm_playground$Playground$emptyKeyboard,
+							f: A4($evancz$elm_playground$Playground$Mouse, computer.f.aN, computer.f.V, false, false)
 						}));
 		}
 	});
 var $elm$browser$Browser$Dom$getViewport = _Browser_withWindow(_Browser_getViewport);
 var $evancz$elm_playground$Playground$initialComputer = {
-	aV: $evancz$elm_playground$Playground$emptyKeyboard,
+	aX: $evancz$elm_playground$Playground$emptyKeyboard,
 	f: A4($evancz$elm_playground$Playground$Mouse, 0, 0, false, false),
-	aE: A2($evancz$elm_playground$Playground$toScreen, 600, 600),
-	N: $elm$time$Time$millisToPosix(0)
+	aG: A2($evancz$elm_playground$Playground$toScreen, 600, 600),
+	S: $elm$time$Time$millisToPosix(0)
 };
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
@@ -6677,10 +6677,10 @@ var $elm$svg$Svg$svg = $elm$svg$Svg$trustedNode('svg');
 var $elm$svg$Svg$Attributes$viewBox = _VirtualDom_attribute('viewBox');
 var $evancz$elm_playground$Playground$render = F2(
 	function (screen, shapes) {
-		var y = $elm$core$String$fromFloat(screen.R);
-		var x = $elm$core$String$fromFloat(screen.q);
-		var w = $elm$core$String$fromFloat(screen.a2);
-		var h = $elm$core$String$fromFloat(screen.am);
+		var y = $elm$core$String$fromFloat(screen.X);
+		var x = $elm$core$String$fromFloat(screen.s);
+		var w = $elm$core$String$fromFloat(screen.a4);
+		var h = $elm$core$String$fromFloat(screen.ao);
 		return A2(
 			$elm$svg$Svg$svg,
 			_List_fromArray(
@@ -6700,14 +6700,14 @@ var $evancz$elm_playground$Playground$game = F3(
 			var memory = _v3.b;
 			var computer = _v3.c;
 			return {
-				aO: _List_fromArray(
+				aQ: _List_fromArray(
 					[
 						A2(
 						$evancz$elm_playground$Playground$render,
-						computer.aE,
+						computer.aG,
 						A2(viewMemory, computer, memory))
 					]),
-				a1: 'Playground'
+				a3: 'Playground'
 			};
 		};
 		var update = F2(
@@ -6730,20 +6730,30 @@ var $evancz$elm_playground$Playground$game = F3(
 				A2($elm$core$Task$perform, $evancz$elm_playground$Playground$GotViewport, $elm$browser$Browser$Dom$getViewport));
 		};
 		return $elm$browser$Browser$document(
-			{ao: init, a0: subscriptions, aI: update, aJ: view});
+			{aq: init, a2: subscriptions, aK: update, aL: view});
 	});
 var $author$project$Shapes$ConnectedPolygon$ConnectedPolygon = F3(
 	function (segments, innerPoly, outerPoly) {
-		return {V: innerPoly, Z: outerPoly, aF: segments};
+		return {P: innerPoly, R: outerPoly, aH: segments};
 	});
 var $author$project$Characters$Enimies$Flipper = $elm$core$Basics$identity;
 var $author$project$Levels$Levels$Levels = F2(
 	function (count, levels) {
-		return {L: count, W: levels};
+		return {C: count, Q: levels};
 	});
 var $author$project$Shapes$Position$Position = F2(
 	function (x, y) {
-		return {aL: x, P: y};
+		return {aN: x, V: y};
+	});
+var $author$project$Levels$Level$Level = $elm$core$Basics$identity;
+var $author$project$Levels$Level$addEnimes = F2(
+	function (newEnimies, _v0) {
+		var level = _v0;
+		return _Utils_update(
+			level,
+			{
+				o: _Utils_ap(newEnimies, level.o)
+			});
 	});
 var $elm$core$Basics$degrees = function (angleInDegrees) {
 	return (angleInDegrees * $elm$core$Basics$pi) / 180;
@@ -6752,11 +6762,11 @@ var $author$project$Shapes$Position$rotatePos = F2(
 	function (angle, pos) {
 		return A2(
 			$author$project$Shapes$Position$Position,
-			(pos.aL * $elm$core$Basics$cos(
-				$elm$core$Basics$degrees(angle))) - (pos.P * $elm$core$Basics$sin(
+			(pos.aN * $elm$core$Basics$cos(
+				$elm$core$Basics$degrees(angle))) - (pos.V * $elm$core$Basics$sin(
 				$elm$core$Basics$degrees(angle))),
-			(pos.P * $elm$core$Basics$cos(
-				$elm$core$Basics$degrees(angle))) + (pos.aL * $elm$core$Basics$sin(
+			(pos.V * $elm$core$Basics$cos(
+				$elm$core$Basics$degrees(angle))) + (pos.aN * $elm$core$Basics$sin(
 				$elm$core$Basics$degrees(angle))));
 	});
 var $author$project$Shapes$Polygon$equaladeral = F3(
@@ -6766,7 +6776,7 @@ var $author$project$Shapes$Polygon$equaladeral = F3(
 		return A2(
 			$elm$core$List$map,
 			function (pos) {
-				return A2($author$project$Shapes$Position$Position, (pos.aL * size) + center.aL, (pos.P * size) + center.P);
+				return A2($author$project$Shapes$Position$Position, (pos.aN * size) + center.aN, (pos.V * size) + center.V);
 			},
 			A2(
 				$elm$core$List$map,
@@ -6774,6 +6784,34 @@ var $author$project$Shapes$Polygon$equaladeral = F3(
 					return A2($author$project$Shapes$Position$rotatePos, angle * i, point);
 				},
 				A2($elm$core$List$range, 0, sides - 1)));
+	});
+var $author$project$Shapes$Position$grow = F3(
+	function (percent, orgin, pos) {
+		return A2($author$project$Shapes$Position$Position, ((pos.aN - orgin.aN) * percent) + orgin.aN, ((pos.V - orgin.V) * percent) + orgin.V);
+	});
+var $author$project$Shapes$Polygon$grow = F3(
+	function (percent, orgin, poly) {
+		return A2(
+			$elm$core$List$map,
+			A2($author$project$Shapes$Position$grow, percent, orgin),
+			poly);
+	});
+var $author$project$Shapes$ConnectedPolygon$grow = F3(
+	function (percent, orgin, cPoly) {
+		return A3(
+			$author$project$Shapes$ConnectedPolygon$ConnectedPolygon,
+			cPoly.aH,
+			A3($author$project$Shapes$Polygon$grow, percent, orgin, cPoly.P),
+			A3($author$project$Shapes$Polygon$grow, percent, orgin, cPoly.R));
+	});
+var $author$project$Levels$Level$finish = F3(
+	function (percent, orgin, _v0) {
+		var level = _v0;
+		return _Utils_update(
+			level,
+			{
+				l: A3($author$project$Shapes$ConnectedPolygon$grow, percent, orgin, level.l)
+			});
 	});
 var $elm$core$Array$fromListHelp = F3(
 	function (list, nodeList, nodeListSize) {
@@ -6812,8 +6850,11 @@ var $elm$core$Array$fromList = function (list) {
 };
 var $author$project$Characters$Character$Character = F4(
 	function (x, y, height, color) {
-		return {ah: color, am: height, aL: x, P: y};
+		return {aj: color, ao: height, aN: x, V: y};
 	});
+var $author$project$Characters$Flipper$MoveY = function (a) {
+	return {$: 1, a: a};
+};
 var $evancz$elm_playground$Playground$Hex = function (a) {
 	return {$: 0, a: a};
 };
@@ -6821,75 +6862,280 @@ var $evancz$elm_playground$Playground$red = $evancz$elm_playground$Playground$He
 var $author$project$Characters$Flipper$color = $evancz$elm_playground$Playground$red;
 var $author$project$Characters$Flipper$filpperHeight = 0.05;
 var $author$project$Characters$Flipper$initFlipper = function (x) {
-	return A4($author$project$Characters$Character$Character, x, 1, $author$project$Characters$Flipper$filpperHeight, $author$project$Characters$Flipper$color);
+	return $author$project$Characters$Flipper$MoveY(
+		A4($author$project$Characters$Character$Character, x, 1, $author$project$Characters$Flipper$filpperHeight, $author$project$Characters$Flipper$color));
 };
-var $author$project$Levels$Level$Level = F6(
-	function (count, cPoly, player, bullets, enimies, events) {
-		return {K: bullets, u: cPoly, L: count, M: enimies, U: events, F: player};
+var $author$project$Characters$Player$Alive = F2(
+	function (a, b) {
+		return {$: 0, a: a, b: b};
 	});
 var $evancz$elm_playground$Playground$yellow = $evancz$elm_playground$Playground$Hex('#edd400');
 var $author$project$Characters$Player$color = $evancz$elm_playground$Playground$yellow;
 var $author$project$Characters$Player$playerSize = 0.2;
-var $author$project$Characters$Player$initPlayer = A4($author$project$Characters$Character$Character, 0, 0, $author$project$Characters$Player$playerSize, $author$project$Characters$Player$color);
-var $author$project$Levels$Level$levelInit = F2(
-	function (cPoly, events) {
-		return A6($author$project$Levels$Level$Level, 0, cPoly, $author$project$Characters$Player$initPlayer, _List_Nil, _List_Nil, events);
+var $author$project$Characters$Player$initPlayer = A2(
+	$author$project$Characters$Player$Alive,
+	A4($author$project$Characters$Character$Character, 0, 0, $author$project$Characters$Player$playerSize, $author$project$Characters$Player$color),
+	0);
+var $author$project$Levels$Level$levelInit = F4(
+	function (completeCount, cPoly, updateEvent, drawEvents) {
+		return {B: _List_Nil, l: cPoly, N: completeCount, C: 0, O: drawEvents, o: _List_Nil, y: $author$project$Characters$Player$initPlayer, U: updateEvent};
 	});
-var $author$project$Levels$Levels$levelsInit = A2(
-	$author$project$Levels$Levels$Levels,
-	0,
-	$elm$core$Array$fromList(
-		_List_fromArray(
-			[
+var $elm$core$Basics$modBy = _Basics_modBy;
+var $author$project$Shapes$Line$Line = F2(
+	function (pos1, pos2) {
+		return {ax: pos1, ay: pos2};
+	});
+var $author$project$Shapes$Line$lineCenter = function (line) {
+	var posCenter = F2(
+		function (p1, p2) {
+			return (p1 + p2) / 2;
+		});
+	return A2(
+		$author$project$Shapes$Position$Position,
+		A2(posCenter, line.ax.aN, line.ay.aN),
+		A2(posCenter, line.ax.V, line.ay.V));
+};
+var $author$project$Shapes$Position$rotateAroundPoint = F3(
+	function (angle, orgin, pos) {
+		var point = A2(
+			$author$project$Shapes$Position$rotatePos,
+			angle,
+			A2($author$project$Shapes$Position$Position, pos.aN - orgin.aN, pos.V - orgin.V));
+		return A2($author$project$Shapes$Position$Position, point.aN + orgin.aN, point.V + orgin.V);
+	});
+var $author$project$Shapes$Polygon$starShape = F3(
+	function (points, center, size) {
+		var rotatePoint = A2($author$project$Shapes$Position$Position, center.aN + size, center.V);
+		var smallerRotatePoint = $author$project$Shapes$Line$lineCenter(
+			A2($author$project$Shapes$Line$Line, center, rotatePoint));
+		return A2(
+			$elm$core$List$map,
+			function (i) {
+				return A3(
+					$author$project$Shapes$Position$rotateAroundPoint,
+					(360 / points) * i,
+					center,
+					(!A2($elm$core$Basics$modBy, 2, i)) ? rotatePoint : smallerRotatePoint);
+			},
+			A2($elm$core$List$range, 0, points));
+	});
+var $author$project$Levels$Level$toRecord = function (_v0) {
+	var record = _v0;
+	return record;
+};
+var $author$project$Levels$Levels$levelsInit = function () {
+	var zeroOrgin = A2($author$project$Shapes$Position$Position, 0, 0);
+	var updateEvents4 = function (level) {
+		var _v2 = $author$project$Levels$Level$toRecord(level).C;
+		switch (_v2) {
+			case 20:
+				return A2(
+					$author$project$Levels$Level$addEnimes,
+					_List_fromArray(
+						[
+							$author$project$Characters$Flipper$initFlipper(0)
+						]),
+					level);
+			case 60:
+				return A2(
+					$author$project$Levels$Level$addEnimes,
+					_List_fromArray(
+						[
+							$author$project$Characters$Flipper$initFlipper(4),
+							$author$project$Characters$Flipper$initFlipper(8)
+						]),
+					level);
+			case 120:
+				return A2(
+					$author$project$Levels$Level$addEnimes,
+					_List_fromArray(
+						[
+							$author$project$Characters$Flipper$initFlipper(5),
+							$author$project$Characters$Flipper$initFlipper(2),
+							$author$project$Characters$Flipper$initFlipper(10)
+						]),
+					level);
+			case 200:
+				return function (e) {
+					return A2($author$project$Levels$Level$addEnimes, e, level);
+				}(
+					A2(
+						$elm$core$List$map,
+						function (n) {
+							return $author$project$Characters$Flipper$initFlipper(n * 2);
+						},
+						A2($elm$core$List$range, 0, 9)));
+			default:
+				return level;
+		}
+	};
+	var updateEvents3 = function (level) {
+		var count = $author$project$Levels$Level$toRecord(level).C;
+		return (!A2($elm$core$Basics$modBy, 150, count)) ? A2(
+			$author$project$Levels$Level$addEnimes,
+			_List_fromArray(
+				[
+					$author$project$Characters$Flipper$initFlipper(0),
+					$author$project$Characters$Flipper$initFlipper(2),
+					$author$project$Characters$Flipper$initFlipper(4),
+					$author$project$Characters$Flipper$initFlipper(6),
+					$author$project$Characters$Flipper$initFlipper(8)
+				]),
+			level) : ((!A2($elm$core$Basics$modBy, 75, count)) ? A2(
+			$author$project$Levels$Level$addEnimes,
+			_List_fromArray(
+				[
+					$author$project$Characters$Flipper$initFlipper(1),
+					$author$project$Characters$Flipper$initFlipper(3),
+					$author$project$Characters$Flipper$initFlipper(5),
+					$author$project$Characters$Flipper$initFlipper(7),
+					$author$project$Characters$Flipper$initFlipper(9)
+				]),
+			level) : level);
+	};
+	var updateEvents2 = function (level) {
+		var enimies = function (i) {
+			return function (e) {
+				return A2($author$project$Levels$Level$addEnimes, e, level);
+			}(
 				A2(
-				$author$project$Levels$Level$levelInit,
-				A3(
-					$author$project$Shapes$ConnectedPolygon$ConnectedPolygon,
-					20,
+					$elm$core$List$map,
+					function (n) {
+						return $author$project$Characters$Flipper$initFlipper((n * 2) + i);
+					},
+					A2($elm$core$List$range, 0, 4)));
+		};
+		var _v1 = $author$project$Levels$Level$toRecord(level).C;
+		switch (_v1) {
+			case 20:
+				return enimies(0);
+			case 120:
+				return enimies(10);
+			case 220:
+				return enimies(20);
+			default:
+				return level;
+		}
+	};
+	var updateEvents1 = function (level) {
+		var _v0 = $author$project$Levels$Level$toRecord(level).C;
+		switch (_v0) {
+			case 20:
+				return A2(
+					$author$project$Levels$Level$addEnimes,
+					_List_fromArray(
+						[
+							$author$project$Characters$Flipper$initFlipper(0)
+						]),
+					level);
+			case 60:
+				return A2(
+					$author$project$Levels$Level$addEnimes,
+					_List_fromArray(
+						[
+							$author$project$Characters$Flipper$initFlipper(4),
+							$author$project$Characters$Flipper$initFlipper(8)
+						]),
+					level);
+			case 120:
+				return A2(
+					$author$project$Levels$Level$addEnimes,
+					_List_fromArray(
+						[
+							$author$project$Characters$Flipper$initFlipper(5),
+							$author$project$Characters$Flipper$initFlipper(2),
+							$author$project$Characters$Flipper$initFlipper(10)
+						]),
+					level);
+			case 200:
+				return function (e) {
+					return A2($author$project$Levels$Level$addEnimes, e, level);
+				}(
+					A2(
+						$elm$core$List$map,
+						function (n) {
+							return $author$project$Characters$Flipper$initFlipper(n * 2);
+						},
+						A2($elm$core$List$range, 0, 9)));
+			default:
+				return level;
+		}
+	};
+	var orgin2 = A2($author$project$Shapes$Position$Position, 1, 0);
+	var orgin1 = A2($author$project$Shapes$Position$Position, 0.35, 0.35);
+	var drawEvents3 = function (level) {
+		var i = $author$project$Levels$Level$toRecord(level).C;
+		return (i > 400) ? A3($author$project$Levels$Level$finish, 1.001 * (i - 400), orgin2, level) : ((i < 20) ? A3($author$project$Levels$Level$finish, i / 20, orgin2, level) : level);
+	};
+	var drawEvents2 = function (level) {
+		var i = $author$project$Levels$Level$toRecord(level).C;
+		return (i > 400) ? A3($author$project$Levels$Level$finish, 1.001 * (i - 400), zeroOrgin, level) : ((i < 20) ? A3($author$project$Levels$Level$finish, i / 20, zeroOrgin, level) : level);
+	};
+	var drawEvents1 = function (level) {
+		var i = $author$project$Levels$Level$toRecord(level).C;
+		return (i > 400) ? A3($author$project$Levels$Level$finish, 1.001 * (i - 400), orgin1, level) : ((i < 20) ? A3($author$project$Levels$Level$finish, i / 20, orgin1, level) : level);
+	};
+	return A2(
+		$author$project$Levels$Levels$Levels,
+		0,
+		$elm$core$Array$fromList(
+			_List_fromArray(
+				[
+					A4(
+					$author$project$Levels$Level$levelInit,
+					420,
 					A3(
-						$author$project$Shapes$Polygon$equaladeral,
-						5,
-						A2($author$project$Shapes$Position$Position, 0.3, 0.3),
-						0.1),
+						$author$project$Shapes$ConnectedPolygon$ConnectedPolygon,
+						20,
+						A3($author$project$Shapes$Polygon$equaladeral, 5, orgin1, 0.1),
+						A3($author$project$Shapes$Polygon$equaladeral, 5, zeroOrgin, 0.9)),
+					updateEvents1,
+					drawEvents1),
+					A4(
+					$author$project$Levels$Level$levelInit,
+					420,
 					A3(
-						$author$project$Shapes$Polygon$equaladeral,
-						5,
-						A2($author$project$Shapes$Position$Position, 0, 0),
-						0.9)),
-				function (i) {
-					switch (i) {
-						case 10:
-							return _List_fromArray(
-								[
-									$author$project$Characters$Flipper$initFlipper(0)
-								]);
-						case 60:
-							return _List_fromArray(
-								[
-									$author$project$Characters$Flipper$initFlipper(4),
-									$author$project$Characters$Flipper$initFlipper(8)
-								]);
-						case 120:
-							return _List_fromArray(
-								[
-									$author$project$Characters$Flipper$initFlipper(5),
-									$author$project$Characters$Flipper$initFlipper(2),
-									$author$project$Characters$Flipper$initFlipper(10)
-								]);
-						case 200:
-							return A2(
-								$elm$core$List$map,
-								function (n) {
-									return $author$project$Characters$Flipper$initFlipper(n * 2);
-								},
-								A2($elm$core$List$range, 0, 10));
-						default:
-							return _List_Nil;
-					}
-				})
-			])));
-var $author$project$Levels$Levels$fakeLevel = A2(
+						$author$project$Shapes$ConnectedPolygon$ConnectedPolygon,
+						30,
+						A3($author$project$Shapes$Polygon$equaladeral, 3, zeroOrgin, 0.1),
+						A3($author$project$Shapes$Polygon$equaladeral, 3, zeroOrgin, 0.9)),
+					updateEvents2,
+					drawEvents2),
+					A4(
+					$author$project$Levels$Level$levelInit,
+					420,
+					A3(
+						$author$project$Shapes$ConnectedPolygon$ConnectedPolygon,
+						10,
+						A3($author$project$Shapes$Polygon$starShape, 10, zeroOrgin, 0.1),
+						A3($author$project$Shapes$Polygon$starShape, 10, zeroOrgin, 0.9)),
+					updateEvents3,
+					drawEvents2),
+					A4(
+					$author$project$Levels$Level$levelInit,
+					420,
+					A3(
+						$author$project$Shapes$ConnectedPolygon$ConnectedPolygon,
+						24,
+						A3($author$project$Shapes$Polygon$equaladeral, 4, zeroOrgin, 0.9),
+						A3($author$project$Shapes$Polygon$equaladeral, 4, zeroOrgin, 0.1)),
+					updateEvents2,
+					drawEvents2),
+					A4(
+					$author$project$Levels$Level$levelInit,
+					420,
+					A3(
+						$author$project$Shapes$ConnectedPolygon$ConnectedPolygon,
+						25,
+						A3($author$project$Shapes$Polygon$equaladeral, 5, orgin2, 0.1),
+						A3($author$project$Shapes$Polygon$equaladeral, 5, zeroOrgin, 0.9)),
+					updateEvents4,
+					drawEvents3)
+				])));
+}();
+var $author$project$Levels$Levels$fakeLevel = A4(
 	$author$project$Levels$Level$levelInit,
+	0,
 	A3(
 		$author$project$Shapes$ConnectedPolygon$ConnectedPolygon,
 		0,
@@ -6903,8 +7149,11 @@ var $author$project$Levels$Levels$fakeLevel = A2(
 			0,
 			A2($author$project$Shapes$Position$Position, 0, 0),
 			0)),
-	function (_v0) {
-		return _List_Nil;
+	function (level) {
+		return level;
+	},
+	function (level) {
+		return level;
 	});
 var $elm$core$Bitwise$and = _Bitwise_and;
 var $elm$core$Bitwise$shiftRightZfBy = _Bitwise_shiftRightZfBy;
@@ -6949,13 +7198,21 @@ var $elm$core$Array$get = F2(
 			A3($elm$core$Array$getHelp, startShift, index, tree)));
 	});
 var $author$project$Levels$Levels$currentLevel = function (levels) {
-	var _v0 = A2($elm$core$Array$get, levels.L, levels.W);
+	var _v0 = A2($elm$core$Array$get, levels.C, levels.Q);
 	if (_v0.$ === 1) {
 		return $author$project$Levels$Levels$fakeLevel;
 	} else {
 		var level = _v0.a;
 		return level;
 	}
+};
+var $author$project$Levels$Level$isFinshed = function (_v0) {
+	var level = _v0;
+	return _Utils_cmp(level.C, level.N) > -1;
+};
+var $elm$core$Array$length = function (_v0) {
+	var len = _v0.a;
+	return len;
 };
 var $elm$core$Elm$JsArray$unsafeSet = _JsArray_unsafeSet;
 var $elm$core$Array$setHelp = F4(
@@ -7000,7 +7257,31 @@ var $elm$core$Array$set = F3(
 			A4($elm$core$Array$setHelp, startShift, index, value, tree),
 			tail));
 	});
-var $elm$core$Basics$modBy = _Basics_modBy;
+var $author$project$Characters$Player$isDead = function (player) {
+	if (player.$ === 2) {
+		return true;
+	} else {
+		return false;
+	}
+};
+var $author$project$Levels$Level$reset = function (_v0) {
+	var level = _v0;
+	return A4($author$project$Levels$Level$levelInit, level.N, level.l, level.U, level.O);
+};
+var $evancz$elm_playground$Playground$black = $evancz$elm_playground$Playground$Hex('#000000');
+var $author$project$Characters$Character$nullCharacter = A4($author$project$Characters$Character$Character, 0, 0, 0, $evancz$elm_playground$Playground$black);
+var $author$project$Characters$Player$toCharacter = function (player) {
+	switch (player.$) {
+		case 0:
+			var c = player.a;
+			return c;
+		case 1:
+			var c = player.a;
+			return c;
+		default:
+			return $author$project$Characters$Character$nullCharacter;
+	}
+};
 var $evancz$elm_playground$Playground$green = $evancz$elm_playground$Playground$Hex('#73d216');
 var $author$project$Characters$Bullet$bulletColor = $evancz$elm_playground$Playground$green;
 var $author$project$Characters$Bullet$bulletSize = 0.1;
@@ -7008,7 +7289,7 @@ var $author$project$Characters$Bullet$addBullet = F2(
 	function (player, bullets) {
 		return A2(
 			$elm$core$List$cons,
-			A4($author$project$Characters$Character$Character, player.aL, player.P, $author$project$Characters$Bullet$bulletSize, $author$project$Characters$Bullet$bulletColor),
+			A4($author$project$Characters$Character$Character, player.aN, player.V, $author$project$Characters$Bullet$bulletSize, $author$project$Characters$Bullet$bulletColor),
 			bullets);
 	});
 var $elm$core$List$any = F2(
@@ -7034,11 +7315,11 @@ var $elm$core$List$any = F2(
 	});
 var $author$project$Characters$Character$charactersYInterecting = F2(
 	function (character1, character2) {
-		return ((_Utils_cmp(character1.P, character2.P) > -1) && (_Utils_cmp(character1.P, character2.P + character2.am) < 1)) || ((_Utils_cmp(character1.P + character1.am, character2.P) > -1) && (_Utils_cmp(character1.P + character1.am, character2.P + character2.am) < 1));
+		return ((_Utils_cmp(character1.V, character2.V) > -1) && (_Utils_cmp(character1.V, character2.V + character2.ao) < 1)) || ((_Utils_cmp(character1.V + character1.ao, character2.V) > -1) && (_Utils_cmp(character1.V + character1.ao, character2.V + character2.ao) < 1));
 	});
 var $author$project$Characters$Character$charactersIntersecting = F2(
 	function (character1, character2) {
-		return _Utils_eq(character1.aL, character2.aL) && A2($author$project$Characters$Character$charactersYInterecting, character1, character2);
+		return _Utils_eq(character1.aN, character2.aN) && A2($author$project$Characters$Character$charactersYInterecting, character1, character2);
 	});
 var $elm$core$List$filter = F2(
 	function (isGood, list) {
@@ -7052,23 +7333,38 @@ var $elm$core$List$filter = F2(
 			list);
 	});
 var $author$project$Characters$Bullet$isInBounds = function (bullet) {
-	return (bullet.P <= 1) && (bullet.P >= 0);
+	return (bullet.V <= 1) && (bullet.V >= 0);
 };
 var $author$project$Characters$Bullet$isShooting = function (keyboard) {
-	return keyboard.a$;
+	return keyboard.a1;
 };
 var $author$project$Characters$Bullet$bulletSpeed = 0.05;
 var $author$project$Characters$Bullet$move = function (bullet) {
-	return A4($author$project$Characters$Character$Character, bullet.aL, bullet.P + $author$project$Characters$Bullet$bulletSpeed, bullet.am, bullet.ah);
+	return A4($author$project$Characters$Character$Character, bullet.aN, bullet.V + $author$project$Characters$Bullet$bulletSpeed, bullet.ao, bullet.aj);
 };
 var $elm$core$Basics$not = _Basics_not;
+var $author$project$Characters$Flipper$toCharacter = function (flipper) {
+	switch (flipper.$) {
+		case 0:
+			var c = flipper.a;
+			return c;
+		case 1:
+			var c = flipper.a;
+			return c;
+		case 2:
+			var c = flipper.a;
+			return c;
+		default:
+			return $author$project$Characters$Character$nullCharacter;
+	}
+};
 var $author$project$Characters$Enimies$toCharacter = function (enimie) {
 	var c = enimie;
-	return c;
+	return $author$project$Characters$Flipper$toCharacter(c);
 };
 var $author$project$Characters$Enimies$toCharacters = $elm$core$List$map($author$project$Characters$Enimies$toCharacter);
-var $author$project$Characters$Bullet$updateBullets = F4(
-	function (keyboard, player, enimies, bullets) {
+var $author$project$Characters$Bullet$updateBullets = F5(
+	function (keyboard, levelCount, player, enimies, bullets) {
 		return A2(
 			$elm$core$List$map,
 			$author$project$Characters$Bullet$move,
@@ -7080,82 +7376,166 @@ var $author$project$Characters$Bullet$updateBullets = F4(
 						$author$project$Characters$Character$charactersIntersecting(b),
 						$author$project$Characters$Enimies$toCharacters(enimies)));
 				},
-				$author$project$Characters$Bullet$isShooting(keyboard) ? A2($author$project$Characters$Bullet$addBullet, player, bullets) : bullets));
+				($author$project$Characters$Bullet$isShooting(keyboard) && (!A2($elm$core$Basics$modBy, 5, levelCount))) ? A2($author$project$Characters$Bullet$addBullet, player, bullets) : bullets));
 	});
-var $author$project$Levels$Level$updateCount = 3;
+var $author$project$Characters$Flipper$dead = function (flipper) {
+	if (flipper.$ === 3) {
+		return true;
+	} else {
+		return false;
+	}
+};
+var $author$project$Characters$Enimies$dead = function (enimie) {
+	var f = enimie;
+	return $author$project$Characters$Flipper$dead(f);
+};
+var $author$project$Characters$Flipper$Dead = {$: 3};
+var $author$project$Characters$Flipper$Dying = F2(
+	function (a, b) {
+		return {$: 2, a: a, b: b};
+	});
 var $author$project$Characters$Flipper$bound = function (y) {
 	return (y < 0) ? 0 : y;
 };
-var $author$project$Characters$Flipper$speed = 0.005;
-var $author$project$Characters$Flipper$updateFlipper = function (flipper) {
-	return A4(
-		$author$project$Characters$Character$Character,
-		flipper.aL,
-		$author$project$Characters$Flipper$bound(flipper.P - $author$project$Characters$Flipper$speed),
-		flipper.am,
-		flipper.ah);
+var $author$project$Characters$Flipper$kill = function (flipper) {
+	switch (flipper.$) {
+		case 0:
+			var c = flipper.a;
+			return A2($author$project$Characters$Flipper$Dying, c, 0);
+		case 1:
+			var c = flipper.a;
+			return A2($author$project$Characters$Flipper$Dying, c, 0);
+		default:
+			return flipper;
+	}
 };
+var $author$project$Characters$Flipper$speed = 0.005;
+var $author$project$Characters$Flipper$updateFlipper = F2(
+	function (bullets, flipper) {
+		var checkedFlipper = A2(
+			$elm$core$List$any,
+			$author$project$Characters$Character$charactersIntersecting(
+				$author$project$Characters$Flipper$toCharacter(flipper)),
+			bullets) ? $author$project$Characters$Flipper$kill(flipper) : flipper;
+		switch (checkedFlipper.$) {
+			case 1:
+				var c = checkedFlipper.a;
+				return $author$project$Characters$Flipper$MoveY(
+					A4(
+						$author$project$Characters$Character$Character,
+						c.aN,
+						$author$project$Characters$Flipper$bound(c.V - $author$project$Characters$Flipper$speed),
+						c.ao,
+						c.aj));
+			case 2:
+				var c = checkedFlipper.a;
+				var i = checkedFlipper.b;
+				return (i > 5) ? $author$project$Characters$Flipper$Dead : A2($author$project$Characters$Flipper$Dying, c, i + 1);
+			default:
+				return $author$project$Characters$Flipper$Dead;
+		}
+	});
 var $author$project$Characters$Enimies$updateEnimies = F2(
 	function (bullets, enimies) {
 		return A2(
 			$elm$core$List$filter,
 			function (e) {
-				return !A2(
-					$elm$core$List$any,
-					$author$project$Characters$Character$charactersIntersecting(
-						$author$project$Characters$Enimies$toCharacter(e)),
-					bullets);
+				return !$author$project$Characters$Enimies$dead(e);
 			},
 			A2(
 				$elm$core$List$map,
 				function (e) {
 					var c = e;
-					return $author$project$Characters$Flipper$updateFlipper(c);
+					return A2($author$project$Characters$Flipper$updateFlipper, bullets, c);
 				},
 				enimies));
+	});
+var $author$project$Characters$Player$Dead = {$: 2};
+var $author$project$Characters$Player$Dying = F2(
+	function (a, b) {
+		return {$: 1, a: a, b: b};
 	});
 var $author$project$Characters$Player$moveX = F3(
 	function (dir, cPoly, player) {
 		return A4(
 			$author$project$Characters$Character$Character,
-			A2($elm$core$Basics$modBy, cPoly.aF, cPoly.aF + (player.aL + dir)),
-			player.P,
-			player.am,
-			player.ah);
+			A2($elm$core$Basics$modBy, cPoly.aH, cPoly.aH + (player.aN + dir)),
+			player.V,
+			player.ao,
+			player.aj);
+	});
+var $author$project$Characters$Character$onRim = function (character) {
+	return !character.V;
+};
+var $author$project$Characters$Player$playerHit = F2(
+	function (enimies, player) {
+		return A2(
+			$elm$core$List$any,
+			function (e) {
+				return $author$project$Characters$Character$onRim(e) && _Utils_eq(e.aN, player.aN);
+			},
+			$author$project$Characters$Enimies$toCharacters(enimies));
 	});
 var $evancz$elm_playground$Playground$toX = function (keyboard) {
-	return (keyboard.A ? 1 : 0) - (keyboard.q ? 1 : 0);
+	return (keyboard.E ? 1 : 0) - (keyboard.s ? 1 : 0);
 };
 var $elm$core$Basics$truncate = _Basics_truncate;
-var $author$project$Characters$Player$updatePlayer = F3(
-	function (keyboard, cPoly, player) {
-		return A3(
-			$author$project$Characters$Player$moveX,
-			$evancz$elm_playground$Playground$toX(keyboard) | 0,
-			cPoly,
-			player);
+var $author$project$Characters$Player$updatePlayer = F4(
+	function (keyboard, cPoly, enimies, player) {
+		var moveInterval = 2;
+		var deathInterval = 5;
+		switch (player.$) {
+			case 0:
+				var c = player.a;
+				var i = player.b;
+				return A2($author$project$Characters$Player$playerHit, enimies, c) ? A2($author$project$Characters$Player$Dying, c, 0) : ((_Utils_cmp(i, moveInterval) > 0) ? function (ch) {
+					return A2($author$project$Characters$Player$Alive, ch, 0);
+				}(
+					A3(
+						$author$project$Characters$Player$moveX,
+						$evancz$elm_playground$Playground$toX(keyboard) | 0,
+						cPoly,
+						c)) : A2(
+					$author$project$Characters$Player$Alive,
+					c,
+					(!$evancz$elm_playground$Playground$toX(keyboard)) ? moveInterval : (i + 1)));
+			case 1:
+				var c = player.a;
+				var i = player.b;
+				return (_Utils_cmp(i, deathInterval) > 0) ? $author$project$Characters$Player$Dead : A2($author$project$Characters$Player$Dying, c, i + 1);
+			default:
+				return $author$project$Characters$Player$Dead;
+		}
 	});
 var $author$project$Levels$Level$updateLevel = F2(
-	function (keyboard, level) {
-		var bullets = level.K;
-		return A6(
-			$author$project$Levels$Level$Level,
-			level.L + 1,
-			level.u,
-			(!A2($elm$core$Basics$modBy, $author$project$Levels$Level$updateCount, level.L)) ? A3($author$project$Characters$Player$updatePlayer, keyboard, level.u, level.F) : level.F,
-			A4($author$project$Characters$Bullet$updateBullets, keyboard, level.F, level.M, level.K),
-			_Utils_ap(
-				A2($author$project$Characters$Enimies$updateEnimies, bullets, level.M),
-				level.U(level.L)),
-			level.U);
+	function (keyboard, notUpdatedLevel) {
+		var level = $author$project$Levels$Level$toRecord(
+			$author$project$Levels$Level$toRecord(notUpdatedLevel).U(notUpdatedLevel));
+		return $author$project$Characters$Player$isDead(level.y) ? $author$project$Levels$Level$reset(level) : _Utils_update(
+			level,
+			{
+				B: A5(
+					$author$project$Characters$Bullet$updateBullets,
+					keyboard,
+					level.C,
+					$author$project$Characters$Player$toCharacter(level.y),
+					level.o,
+					level.B),
+				C: level.C + 1,
+				o: A2($author$project$Characters$Enimies$updateEnimies, level.B, level.o),
+				y: A4($author$project$Characters$Player$updatePlayer, keyboard, level.l, level.o, level.y)
+			});
 	});
 var $author$project$Levels$Levels$updateLevels = F2(
 	function (keyboard, levels) {
-		return A2(
+		return (_Utils_cmp(
+			$elm$core$Array$length(levels.Q),
+			levels.C) < 1) ? $author$project$Levels$Levels$levelsInit : A2(
 			$author$project$Levels$Levels$Levels,
-			levels.L,
+			$author$project$Levels$Level$isFinshed(
+				$author$project$Levels$Levels$currentLevel(levels)) ? (levels.C + 1) : levels.C,
 			function (current) {
-				return A3($elm$core$Array$set, levels.L, current, levels.W);
+				return A3($elm$core$Array$set, levels.C, current, levels.Q);
 			}(
 				A2(
 					$author$project$Levels$Level$updateLevel,
@@ -7165,14 +7545,9 @@ var $author$project$Levels$Levels$updateLevels = F2(
 var $author$project$Main$update = F2(
 	function (computer, memory) {
 		return $author$project$Main$Memory(
-			A2($author$project$Levels$Levels$updateLevels, computer.aV, memory.W));
+			A2($author$project$Levels$Levels$updateLevels, computer.aX, memory.Q));
 	});
-var $evancz$elm_playground$Playground$black = $evancz$elm_playground$Playground$Hex('#000000');
 var $author$project$Main$backgroundColor = $evancz$elm_playground$Playground$black;
-var $author$project$Shapes$Line$Line = F2(
-	function (pos1, pos2) {
-		return {av: pos1, aw: pos2};
-	});
 var $elm$core$List$append = F2(
 	function (xs, ys) {
 		if (!ys.b) {
@@ -7204,7 +7579,7 @@ var $author$project$Shapes$Line$lineSize = function (line) {
 				2);
 		});
 	return $elm$core$Basics$sqrt(
-		A2(sqrDiff, line.av.aL, line.aw.aL) + A2(sqrDiff, line.av.P, line.aw.P));
+		A2(sqrDiff, line.ax.aN, line.ay.aN) + A2(sqrDiff, line.ax.V, line.ay.V));
 };
 var $author$project$Shapes$Line$positionOnLine = F2(
 	function (percent, line) {
@@ -7214,8 +7589,8 @@ var $author$project$Shapes$Line$positionOnLine = F2(
 			});
 		return A2(
 			$author$project$Shapes$Position$Position,
-			A2(posCal, line.av.aL, line.aw.aL),
-			A2(posCal, line.av.P, line.aw.P));
+			A2(posCal, line.ax.aN, line.ay.aN),
+			A2(posCal, line.ax.V, line.ay.V));
 	});
 var $elm$core$List$sum = function (numbers) {
 	return A3($elm$core$List$foldl, $elm$core$Basics$add, 0, numbers);
@@ -7310,8 +7685,8 @@ var $author$project$Shapes$ConnectedPolygon$linesBetween = function (cPoly) {
 	return A3(
 		$elm$core$List$map2,
 		$author$project$Shapes$Line$Line,
-		A2($author$project$Shapes$Polygon$positionsOnPeremeter, cPoly.aF, cPoly.V),
-		A2($author$project$Shapes$Polygon$positionsOnPeremeter, cPoly.aF, cPoly.Z));
+		A2($author$project$Shapes$Polygon$positionsOnPeremeter, cPoly.aH, cPoly.P),
+		A2($author$project$Shapes$Polygon$positionsOnPeremeter, cPoly.aH, cPoly.R));
 };
 var $elm$core$Tuple$pair = F2(
 	function (a, b) {
@@ -7368,9 +7743,9 @@ var $author$project$Characters$Character$characterLine = F2(
 				A2($author$project$Shapes$Position$Position, 0, 0)),
 			A2(
 				$elm$core$Array$get,
-				character.aL,
+				character.aN,
 				$elm$core$Array$fromList(
-					A2($author$project$Shapes$ConnectedPolygon$linesBetweenConnectedPairs, character.P, cPoly))));
+					A2($author$project$Shapes$ConnectedPolygon$linesBetweenConnectedPairs, character.V, cPoly))));
 	});
 var $elm$core$Basics$atan2 = _Basics_atan2;
 var $author$project$Shapes$Line$toDegrees = function (rad) {
@@ -7378,17 +7753,7 @@ var $author$project$Shapes$Line$toDegrees = function (rad) {
 };
 var $author$project$Shapes$Line$lineAngle = function (line) {
 	return $author$project$Shapes$Line$toDegrees(
-		A2($elm$core$Basics$atan2, line.aw.aL - line.av.aL, line.av.P - line.aw.P));
-};
-var $author$project$Shapes$Line$lineCenter = function (line) {
-	var posCenter = F2(
-		function (p1, p2) {
-			return (p1 + p2) / 2;
-		});
-	return A2(
-		$author$project$Shapes$Position$Position,
-		A2(posCenter, line.av.aL, line.aw.aL),
-		A2(posCenter, line.av.P, line.aw.P));
+		A2($elm$core$Basics$atan2, line.ay.aN - line.ax.aN, line.ax.V - line.ay.V));
 };
 var $elm$core$Basics$min = F2(
 	function (x, y) {
@@ -7437,8 +7802,8 @@ var $author$project$Shapes$Position$toScreenPos = F2(
 	function (screen, pos) {
 		return A2(
 			$author$project$Shapes$Position$Position,
-			pos.aL * (A2($elm$core$Basics$min, screen.a2, screen.am) / 2),
-			pos.P * (A2($elm$core$Basics$min, screen.a2, screen.am) / 2));
+			pos.aN * (A2($elm$core$Basics$min, screen.a4, screen.ao) / 2),
+			pos.V * (A2($elm$core$Basics$min, screen.a4, screen.ao) / 2));
 	});
 var $author$project$Shapes$Line$drawLine = F4(
 	function (screen, color, width, line) {
@@ -7448,8 +7813,8 @@ var $author$project$Shapes$Line$drawLine = F4(
 			$author$project$Shapes$Line$lineCenter(line));
 		return A3(
 			$evancz$elm_playground$Playground$move,
-			center.aL,
-			center.P,
+			center.aN,
+			center.V,
 			A2(
 				$evancz$elm_playground$Playground$rotate,
 				$author$project$Shapes$Line$lineAngle(line),
@@ -7457,7 +7822,7 @@ var $author$project$Shapes$Line$drawLine = F4(
 					$evancz$elm_playground$Playground$rectangle,
 					color,
 					width,
-					($author$project$Shapes$Line$lineSize(line) * A2($elm$core$Basics$min, screen.a2, screen.am)) / 2)));
+					($author$project$Shapes$Line$lineSize(line) * A2($elm$core$Basics$min, screen.a4, screen.ao)) / 2)));
 	});
 var $evancz$elm_playground$Playground$Group = function (a) {
 	return {$: 7, a: a};
@@ -7486,13 +7851,13 @@ var $author$project$Characters$Bullet$drawBullet = F4(
 		return A4(
 			$author$project$Shapes$Polygon$drawPoly,
 			screen,
-			bullet.ah,
+			bullet.aj,
 			size,
 			A3(
 				$author$project$Shapes$Polygon$equaladeral,
 				3,
 				$author$project$Shapes$Line$lineCenter(line),
-				($author$project$Shapes$Line$lineSize(line) * bullet.am) / 2));
+				($author$project$Shapes$Line$lineSize(line) * bullet.ao) / 2));
 	});
 var $author$project$Characters$Bullet$drawBullets = F4(
 	function (screen, lineWidth, cPoly, bullets) {
@@ -7515,25 +7880,41 @@ var $author$project$Shapes$ConnectedPolygon$drawConnectedPoly = F4(
 			_Utils_ap(
 				_List_fromArray(
 					[
-						A4($author$project$Shapes$Polygon$drawPoly, screen, color, lineWidth, cPoly.Z),
-						A4($author$project$Shapes$Polygon$drawPoly, screen, color, lineWidth, cPoly.V)
+						A4($author$project$Shapes$Polygon$drawPoly, screen, color, lineWidth, cPoly.R),
+						A4($author$project$Shapes$Polygon$drawPoly, screen, color, lineWidth, cPoly.P)
 					]),
 				A4($author$project$Shapes$ConnectedPolygon$drawLinesBetween, screen, color, lineWidth, cPoly)));
 	});
-var $author$project$Characters$Flipper$drawFlipper = F4(
-	function (screen, lineWidth, cPoly, flipper) {
-		var line2 = A2(
-			$author$project$Characters$Character$characterLine,
-			cPoly,
-			A4($author$project$Characters$Character$Character, flipper.aL, flipper.P - flipper.am, flipper.am, flipper.ah));
-		var line = A2($author$project$Characters$Character$characterLine, cPoly, flipper);
+var $author$project$Characters$Character$drawDead = F4(
+	function (screen, lineWidth, cPoly, character) {
+		var line = A2($author$project$Characters$Character$characterLine, cPoly, character);
 		return A4(
 			$author$project$Shapes$Polygon$drawPoly,
 			screen,
-			flipper.ah,
+			character.aj,
 			lineWidth,
-			_List_fromArray(
-				[line.av, line2.aw, line.aw, line2.av]));
+			A3(
+				$author$project$Shapes$Polygon$starShape,
+				25,
+				$author$project$Shapes$Line$lineCenter(line),
+				$author$project$Shapes$Line$lineSize(line) / 2));
+	});
+var $author$project$Characters$Flipper$drawFlipper = F4(
+	function (screen, lineWidth, cPoly, flipper) {
+		var flipperChacter = $author$project$Characters$Flipper$toCharacter(flipper);
+		var line = A2($author$project$Characters$Character$characterLine, cPoly, flipperChacter);
+		var line2 = A2(
+			$author$project$Characters$Character$characterLine,
+			cPoly,
+			A4($author$project$Characters$Character$Character, flipperChacter.aN, flipperChacter.V - flipperChacter.ao, flipperChacter.ao, flipperChacter.aj));
+		var poly = _List_fromArray(
+			[line.ax, line2.ay, line.ay, line2.ax]);
+		if (flipper.$ === 2) {
+			var c = flipper.a;
+			return A4($author$project$Characters$Character$drawDead, screen, lineWidth, cPoly, c);
+		} else {
+			return A4($author$project$Shapes$Polygon$drawPoly, screen, flipperChacter.aj, lineWidth, poly);
+		}
 	});
 var $author$project$Characters$Enimies$drawEnimies = F4(
 	function (screen, lineWidth, cPoly, enimies) {
@@ -7541,36 +7922,48 @@ var $author$project$Characters$Enimies$drawEnimies = F4(
 			A2(
 				$elm$core$List$map,
 				function (e) {
-					var c = e;
-					return A4($author$project$Characters$Flipper$drawFlipper, screen, lineWidth, cPoly, c);
+					var f = e;
+					return A4($author$project$Characters$Flipper$drawFlipper, screen, lineWidth, cPoly, f);
 				},
 				enimies));
 	});
 var $author$project$Shapes$Line$slope = function (line) {
-	return A2($author$project$Shapes$Position$Position, line.av.aL - line.aw.aL, line.av.P - line.aw.P);
+	return A2($author$project$Shapes$Position$Position, line.ax.aN - line.ay.aN, line.ax.V - line.ay.V);
 };
 var $author$project$Characters$Player$drawPlayer = F4(
 	function (screen, size, cPoly, player) {
-		var line = A2($author$project$Characters$Character$characterLine, cPoly, player);
+		var line = A2(
+			$author$project$Characters$Character$characterLine,
+			cPoly,
+			$author$project$Characters$Player$toCharacter(player));
 		var slope = $author$project$Shapes$Line$slope(line);
+		var height = $author$project$Characters$Player$toCharacter(player).ao;
 		var center = A2(
 			$author$project$Shapes$Position$Position,
-			$author$project$Shapes$Line$lineCenter(line).aL + ((slope.P * player.am) * (-1)),
-			$author$project$Shapes$Line$lineCenter(line).P + (slope.aL * player.am));
-		return A4(
-			$author$project$Shapes$Polygon$drawPoly,
-			screen,
-			$author$project$Characters$Player$color,
-			size,
-			_List_fromArray(
-				[
-					line.av,
-					center,
-					line.aw,
-					A2($author$project$Shapes$Position$Position, center.aL + ((slope.P * $author$project$Characters$Player$playerSize) * (-1)), center.P + (slope.aL * $author$project$Characters$Player$playerSize))
-				]));
+			$author$project$Shapes$Line$lineCenter(line).aN + ((slope.V * height) * (-1)),
+			$author$project$Shapes$Line$lineCenter(line).V + (slope.aN * height));
+		switch (player.$) {
+			case 0:
+				return A4(
+					$author$project$Shapes$Polygon$drawPoly,
+					screen,
+					$author$project$Characters$Player$color,
+					size,
+					_List_fromArray(
+						[
+							line.ax,
+							center,
+							line.ay,
+							A2($author$project$Shapes$Position$Position, center.aN + ((slope.V * $author$project$Characters$Player$playerSize) * (-1)), center.V + (slope.aN * $author$project$Characters$Player$playerSize))
+						]));
+			case 1:
+				var c = player.a;
+				return A4($author$project$Characters$Character$drawDead, screen, size, cPoly, c);
+			default:
+				return A3($evancz$elm_playground$Playground$rectangle, $evancz$elm_playground$Playground$black, 0, 0);
+		}
 	});
-var $author$project$Levels$Level$lineWidth = 3;
+var $author$project$Levels$Level$lineWidth = 1;
 var $evancz$elm_playground$Playground$Rgb = F3(
 	function (a, b, c) {
 		return {$: 1, a: a, b: b, c: c};
@@ -7593,14 +7986,16 @@ var $evancz$elm_playground$Playground$rgb = F3(
 	});
 var $author$project$Levels$Level$shapeColor = A3($evancz$elm_playground$Playground$rgb, 0, 0, 255);
 var $author$project$Levels$Level$drawLevel = F2(
-	function (screen, level) {
+	function (screen, notUpdatedLevel) {
+		var level = $author$project$Levels$Level$toRecord(
+			$author$project$Levels$Level$toRecord(notUpdatedLevel).O(notUpdatedLevel));
 		return $evancz$elm_playground$Playground$group(
 			_List_fromArray(
 				[
-					A4($author$project$Shapes$ConnectedPolygon$drawConnectedPoly, screen, $author$project$Levels$Level$shapeColor, $author$project$Levels$Level$lineWidth, level.u),
-					A4($author$project$Characters$Player$drawPlayer, screen, $author$project$Levels$Level$lineWidth, level.u, level.F),
-					A4($author$project$Characters$Bullet$drawBullets, screen, $author$project$Levels$Level$lineWidth, level.u, level.K),
-					A4($author$project$Characters$Enimies$drawEnimies, screen, $author$project$Levels$Level$lineWidth, level.u, level.M)
+					A4($author$project$Shapes$ConnectedPolygon$drawConnectedPoly, screen, $author$project$Levels$Level$shapeColor, $author$project$Levels$Level$lineWidth, level.l),
+					A4($author$project$Characters$Player$drawPlayer, screen, $author$project$Levels$Level$lineWidth, level.l, level.y),
+					A4($author$project$Characters$Bullet$drawBullets, screen, $author$project$Levels$Level$lineWidth, level.l, level.B),
+					A4($author$project$Characters$Enimies$drawEnimies, screen, $author$project$Levels$Level$lineWidth, level.l, level.o)
 				]));
 	});
 var $author$project$Levels$Levels$drawLevels = F2(
@@ -7612,14 +8007,14 @@ var $author$project$Levels$Levels$drawLevels = F2(
 	});
 var $author$project$Main$fillScreen = F2(
 	function (color, screen) {
-		return A3($evancz$elm_playground$Playground$rectangle, color, screen.a2, screen.am);
+		return A3($evancz$elm_playground$Playground$rectangle, color, screen.a4, screen.ao);
 	});
 var $author$project$Main$view = F2(
 	function (computer, memory) {
 		return _List_fromArray(
 			[
-				A2($author$project$Main$fillScreen, $author$project$Main$backgroundColor, computer.aE),
-				A2($author$project$Levels$Levels$drawLevels, computer.aE, memory.W)
+				A2($author$project$Main$fillScreen, $author$project$Main$backgroundColor, computer.aG),
+				A2($author$project$Levels$Levels$drawLevels, computer.aG, memory.Q)
 			]);
 	});
 var $author$project$Main$main = A3(

@@ -7011,8 +7011,6 @@ var $author$project$Main$Model = F6(
 	function (angle, cubes, x, y, z, gridSize) {
 		return {P: angle, p: cubes, f: gridSize, Y: x, Z: y, _: z};
 	});
-var $elm$core$Platform$Cmd$batch = _Platform_batch;
-var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Main$Cube = F3(
 	function (a, b, c) {
 		return {$: 0, a: a, b: b, c: c};
@@ -7020,7 +7018,7 @@ var $author$project$Main$Cube = F3(
 var $elm$core$Basics$negate = function (n) {
 	return -n;
 };
-var $author$project$Main$thing2 = _List_fromArray(
+var $author$project$Main$defualtShape = _List_fromArray(
 	[
 		A3($author$project$Main$Cube, 0, 1, 0),
 		A3($author$project$Main$Cube, 0, 0, 1),
@@ -7031,9 +7029,11 @@ var $author$project$Main$thing2 = _List_fromArray(
 		A3($author$project$Main$Cube, 0, 1, -1),
 		A3($author$project$Main$Cube, 0, -1, -1)
 	]);
+var $elm$core$Platform$Cmd$batch = _Platform_batch;
+var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Main$init = function (_v0) {
 	return _Utils_Tuple2(
-		A6($author$project$Main$Model, 0, $author$project$Main$thing2, 0, 0, 0, 10),
+		A6($author$project$Main$Model, 0, $author$project$Main$defualtShape, 0, 0, 0, 10),
 		$elm$core$Platform$Cmd$none);
 };
 var $author$project$Main$TimeDelta = function (a) {
@@ -7792,7 +7792,8 @@ var $author$project$Main$view = function (model) {
 					[
 						$elm$html$Html$Attributes$width($author$project$Main$animationWidth),
 						$elm$html$Html$Attributes$height($author$project$Main$windowHeight),
-						A2($elm$html$Html$Attributes$style, 'display', 'block')
+						A2($elm$html$Html$Attributes$style, 'display', 'block'),
+						A2($elm$html$Html$Attributes$style, 'width', '75%')
 					]),
 				$author$project$Main$drawCubes(model)),
 				A2(

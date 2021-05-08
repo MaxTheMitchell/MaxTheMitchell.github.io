@@ -63,8 +63,28 @@ projects =
   div [ id "projects", class "center" ]
     [
       sightOfMusic
+      ,gameOfLife3d
       ,tempest
       ,fractals
+    ]
+
+gameOfLife3d : Html msg 
+gameOfLife3d = 
+  div[class "project"]
+    [
+      (projectDescription
+        "3D Game Of Life"
+        [
+          text "A 3D adaptation of "
+          , a[href "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"][text "Conway's Game Of Life"]
+          ,text  " written in Elm with WebGL."
+        ]
+        [
+          ("/gameOfLife.html", "Play in Full Screen")
+          ,(myGithubURL "3d-game-of-life", "3D Game of Life Repo")
+        ]
+      )
+      ,  iframe[src "/gameOfLife.html", class "tempest-frame textbox"][] 
     ]
 
 tempest : Html msg 
@@ -76,9 +96,7 @@ tempest =
           [text 
           """
           This is my attempt to create a game inspired by tempest 2000 in the web browser. 
-          It is written in a Elm, a Javascript framework that transforms Javascript into a pure functional language.
-          It is currently a work in progress, but you can try out what I've done thus far! 
-          It controls using the arrow key to move and the space bar to shoot.
+          It controls using the arrow keys to move and the space bar to shoot.
           """
           ]
           [

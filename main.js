@@ -4453,7 +4453,7 @@ var $author$project$HomePage$aboutMe = A2(
 					_List_Nil,
 					_List_fromArray(
 						[
-							$elm$html$Html$text('About Me:')
+							$elm$html$Html$text('About Me')
 						])),
 					A2($elm$html$Html$hr, _List_Nil, _List_Nil),
 					A2(
@@ -4539,7 +4539,8 @@ var $author$project$HomePage$headerLinks = A2(
 			A2($author$project$HomePage$headerLink, 'https://app.joinhandshake.com/users/11716834', 'Handshake'),
 			A2($author$project$HomePage$headerLink, 'mailto:max7mitchell@gmail.com', 'Email'),
 			A2($author$project$HomePage$headerLink, '/resume.pdf', 'Resume'),
-			A2($author$project$HomePage$headerLink, '#projects', 'Projects')
+			A2($author$project$HomePage$headerLink, '#projects', 'Projects'),
+			A2($author$project$HomePage$headerLink, '#talks', 'Talks')
 		]));
 var $elm$html$Html$main_ = _VirtualDom_node('main');
 var $author$project$HomePage$myGithubURL = function (project) {
@@ -5006,7 +5007,7 @@ var $author$project$HomePage$tempest = A2(
 			'Tempest 2001',
 			_List_fromArray(
 				[
-					$elm$html$Html$text('\n          This is my attempt to create a game inspired by tempest 2000 in the web browser. \n          It controls using the arrow key to move and the space bar to shoot.\n          ')
+					$elm$html$Html$text('\n          This is my attempt to create a game inspired by tempest 2000 in the web browser. \n          It controls using the arrow keys to move and the space bar to shoot.\n          ')
 				]),
 			_List_fromArray(
 				[
@@ -5026,13 +5027,84 @@ var $author$project$HomePage$tempest = A2(
 		]));
 var $author$project$HomePage$projects = A2(
 	$elm$html$Html$div,
+	_List_Nil,
 	_List_fromArray(
 		[
-			$elm$html$Html$Attributes$id('projects'),
-			$elm$html$Html$Attributes$class('center')
+			$author$project$HomePage$headerBox('Projects'),
+			A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$id('projects'),
+					$elm$html$Html$Attributes$class('center')
+				]),
+			_List_fromArray(
+				[$author$project$HomePage$sightOfMusic, $author$project$HomePage$gameOfLife3d, $author$project$HomePage$tempest, $author$project$HomePage$fractals]))
+		]));
+var $author$project$HomePage$talks = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$id('talks'),
+			$elm$html$Html$Attributes$class('center'),
+			$elm$html$Html$Attributes$class('textbox')
 		]),
 	_List_fromArray(
-		[$author$project$HomePage$sightOfMusic, $author$project$HomePage$gameOfLife3d, $author$project$HomePage$tempest, $author$project$HomePage$fractals]));
+		[
+			A2(
+			$elm$html$Html$h2,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Tech Talks')
+				])),
+			A2($elm$html$Html$hr, _List_Nil, _List_Nil),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('\n          I have done a couple talks over zoom for my university\'s tech club that have been recorded that you can check out.\n          They are each on a different programming language that I believe are being overlooked, Elm and Crystal.  \n          ')
+				])),
+			A2(
+			$elm$html$Html$div,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$a,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$href('https://media.oregonstate.edu/media/t/1_nzjrkuld')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$img,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$src('https://cfvod.kaltura.com/p/391241/sp/0/thumbnail/entry_id/1_nzjrkuld/version/100021/width/724/height/437')
+								]),
+							_List_Nil)
+						])),
+					A2(
+					$elm$html$Html$a,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$href('https://media.oregonstate.edu/media/1_l284pk70')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$img,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$src('https://cfvod.kaltura.com/p/391241/sp/0/thumbnail/entry_id/1_l284pk70/version/100011/width/724/height/437')
+								]),
+							_List_Nil)
+						]))
+				]))
+		]));
 var $author$project$HomePage$main = A2(
 	$elm$html$Html$main_,
 	_List_Nil,
@@ -5041,7 +5113,7 @@ var $author$project$HomePage$main = A2(
 			$author$project$HomePage$headerBox('Max Mitchell\'s Portfolio'),
 			$author$project$HomePage$headerLinks,
 			$author$project$HomePage$aboutMe,
-			$author$project$HomePage$headerBox('Projects'),
+			$author$project$HomePage$talks,
 			$author$project$HomePage$projects
 		]));
 _Platform_export({'HomePage':{'init':_VirtualDom_init($author$project$HomePage$main)(0)(0)}});}(this));

@@ -10,7 +10,7 @@ main =
       headerBox "Max Mitchell's Portfolio"
       ,headerLinks
       ,aboutMe
-      ,headerBox "Projects"
+      ,talks
       ,projects
     ]
 
@@ -24,6 +24,7 @@ headerLinks =
       ,headerLink "mailto:max7mitchell@gmail.com" "Email"
       ,headerLink "/resume.pdf" "Resume"
       ,headerLink "#projects" "Projects"
+      ,headerLink "#talks" "Talks"
     ]
 
 headerLink : String -> String -> Html msg
@@ -36,7 +37,7 @@ aboutMe =
     [
       div [class "textbox" ]
         [
-          h2[][text "About Me:"]
+          h2[][text "About Me"]
           ,hr[][]
           ,p[]
             [
@@ -58,14 +59,40 @@ aboutMe =
         ][]
     ]
 
+talks : Html msg 
+talks = 
+  div [id "talks", class "center", class "textbox"]
+    [
+      h2[][text "Tech Talks"]
+      ,hr[][]
+      ,p[]
+        [
+          text 
+          """
+          I have done a couple talks over zoom for my university's tech club that have been recorded that you can check out.
+          They are each on a different programming language that I believe are being overlooked, Elm and Crystal.  
+          """
+        ]
+      ,div[][
+        a[href "https://media.oregonstate.edu/media/t/1_nzjrkuld"]
+        [img[src "https://cfvod.kaltura.com/p/391241/sp/0/thumbnail/entry_id/1_nzjrkuld/version/100021/width/724/height/437"][]]
+        ,a[href "https://media.oregonstate.edu/media/1_l284pk70"][
+          img[src "https://cfvod.kaltura.com/p/391241/sp/0/thumbnail/entry_id/1_l284pk70/version/100011/width/724/height/437"][]
+          ]
+        ]
+    ]
+
 projects : Html msg
 projects =
-  div [ id "projects", class "center" ]
-    [
-      sightOfMusic
-      ,gameOfLife3d
-      ,tempest
-      ,fractals
+  div[][
+    headerBox "Projects"
+    ,div [ id "projects", class "center" ]
+      [
+        sightOfMusic
+        ,gameOfLife3d
+        ,tempest
+        ,fractals
+      ]
     ]
 
 gameOfLife3d : Html msg 

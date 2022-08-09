@@ -46,8 +46,8 @@ aboutMe =
               Max Mitchell is not to be overlooked. From a young age Max has always possessed an acute interest in mathematics and computers. 
               However, his interests extend beyond these as well and believes in an interdisciplinary approach.
               Through his education and own explorations he has come to learn a multiplicity of programming languages and the concepts that underpin them. 
-              He is enrolled at Oregon State University Cascades and is 
-              on his third year towards achieving a bachelors degree in computer science.
+              He is has just recently graduated from Oregon State University Cascades and is 
+              eager to start his first real job.
               """
             ]
         ]

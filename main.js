@@ -4536,16 +4536,12 @@ var $author$project$HomePage$headerLinks = A2(
 	_List_fromArray(
 		[
 			A2($author$project$HomePage$headerLink, 'https://github.com/MaxTheMitchell', 'Github'),
-			A2($author$project$HomePage$headerLink, 'https://app.joinhandshake.com/users/11716834', 'Handshake'),
 			A2($author$project$HomePage$headerLink, 'mailto:max7mitchell@gmail.com', 'Email'),
 			A2($author$project$HomePage$headerLink, '/resume.pdf', 'Resume'),
-			A2($author$project$HomePage$headerLink, '#projects', 'Projects'),
-			A2($author$project$HomePage$headerLink, '#talks', 'Talks')
+			A2($author$project$HomePage$headerLink, '#talks', 'Talks'),
+			A2($author$project$HomePage$headerLink, '#projects', 'Projects')
 		]));
 var $elm$html$Html$main_ = _VirtualDom_node('main');
-var $author$project$HomePage$myGithubURL = function (project) {
-	return 'https://github.com/MaxTheMitchell/' + project;
-};
 var $elm$core$List$foldrHelper = F4(
 	function (fn, acc, ctr, ls) {
 		if (!ls.b) {
@@ -4661,6 +4657,57 @@ var $author$project$HomePage$projectDescription = F3(
 					},
 					links)));
 	});
+var $author$project$HomePage$exhibitX = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$class('project')
+		]),
+	_List_fromArray(
+		[
+			A3(
+			$author$project$HomePage$projectDescription,
+			'Exhbit X',
+			_List_fromArray(
+				[
+					$elm$html$Html$text('\n          Exhibit X is an interactive, dynamic art installation that is meant to demonstrate the\n          artistic potential of software. It makes use of a projector connected to an Intel Nuc\n          computer and uses a multitude of sensors, a kinetic being and microphone being\n          among them. The Nuc rotates through sketches written in processing. Exhibit X is\n          meant to be open to the public and contains a web interface for OSU students to submit\n          their own sketches. The web interface also functions as a controller for admins to select\n          the sketches to be displayed.\n          ')
+				]),
+			_List_fromArray(
+				[
+					_Utils_Tuple2('https://exhibitx.herokuapp.com/', 'Web Client'),
+					_Utils_Tuple2('https://github.com/osu-cascades/exhibit-x-web', 'WebClient Code'),
+					_Utils_Tuple2('https://github.com/osu-cascades/exhibit-x', 'Sketch Code')
+				])),
+			A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'width', '50%'),
+					A2($elm$html$Html$Attributes$style, 'position', 'relative')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$author$project$HomePage$imgSrc('exhbitx_stairs.png'),
+							$elm$html$Html$Attributes$class('fractal-img')
+						]),
+					_List_Nil),
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$author$project$HomePage$imgSrc('exhbitx_sketchs.png'),
+							$elm$html$Html$Attributes$class('fractal-img')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$HomePage$myGithubURL = function (project) {
+	return 'https://github.com/MaxTheMitchell/' + project;
+};
 var $author$project$HomePage$fractalsDescription = A3(
 	$author$project$HomePage$projectDescription,
 	'Fractal Fun',
@@ -5039,8 +5086,20 @@ var $author$project$HomePage$projects = A2(
 					$elm$html$Html$Attributes$class('center')
 				]),
 			_List_fromArray(
-				[$author$project$HomePage$sightOfMusic, $author$project$HomePage$gameOfLife3d, $author$project$HomePage$tempest, $author$project$HomePage$fractals]))
+				[$author$project$HomePage$exhibitX, $author$project$HomePage$sightOfMusic, $author$project$HomePage$gameOfLife3d, $author$project$HomePage$tempest, $author$project$HomePage$fractals]))
 		]));
+var $elm$html$Html$Attributes$height = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'height',
+		$elm$core$String$fromInt(n));
+};
+var $elm$html$Html$Attributes$width = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'width',
+		$elm$core$String$fromInt(n));
+};
 var $author$project$HomePage$talks = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
@@ -5102,7 +5161,16 @@ var $author$project$HomePage$talks = A2(
 									$elm$html$Html$Attributes$src('https://cfvod.kaltura.com/p/391241/sp/0/thumbnail/entry_id/1_l284pk70/version/100011/width/724/height/437')
 								]),
 							_List_Nil)
-						]))
+						])),
+					A2(
+					$elm$html$Html$iframe,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('https://www.youtube.com/embed/x9h0kiUcOCw'),
+							$elm$html$Html$Attributes$width(724),
+							$elm$html$Html$Attributes$height(437)
+						]),
+					_List_Nil)
 				]))
 		]));
 var $author$project$HomePage$main = A2(

@@ -20,11 +20,10 @@ headerLinks =
   div [class "textbox center links"]
     [
       headerLink "https://github.com/MaxTheMitchell" "Github"
-      ,headerLink "https://app.joinhandshake.com/users/11716834" "Handshake"
       ,headerLink "mailto:max7mitchell@gmail.com" "Email"
       ,headerLink "/resume.pdf" "Resume"
-      ,headerLink "#projects" "Projects"
       ,headerLink "#talks" "Talks"
+      ,headerLink "#projects" "Projects"
     ]
 
 headerLink : String -> String -> Html msg
@@ -79,6 +78,7 @@ talks =
         ,a[href "https://media.oregonstate.edu/media/1_l284pk70"][
           img[src "https://cfvod.kaltura.com/p/391241/sp/0/thumbnail/entry_id/1_l284pk70/version/100011/width/724/height/437"][]
           ]
+        ,iframe [src "https://www.youtube.com/embed/x9h0kiUcOCw", width 724, height 437][]
         ]
     ]
 
@@ -88,11 +88,43 @@ projects =
     headerBox "Projects"
     ,div [ id "projects", class "center" ]
       [
-        sightOfMusic
+        exhibitX
+        ,sightOfMusic
         ,gameOfLife3d
         ,tempest
         ,fractals
       ]
+    ]
+
+exhibitX : Html msg
+exhibitX = 
+  div[class "project"]
+    [
+      (projectDescription 
+        "Exhbit X"
+        [
+          text 
+          """
+          Exhibit X is an interactive, dynamic art installation that is meant to demonstrate the
+          artistic potential of software. It makes use of a projector connected to an Intel Nuc
+          computer and uses a multitude of sensors, a kinetic being and microphone being
+          among them. The Nuc rotates through sketches written in processing. Exhibit X is
+          meant to be open to the public and contains a web interface for OSU students to submit
+          their own sketches. The web interface also functions as a controller for admins to select
+          the sketches to be displayed.
+          """
+        ]
+        [
+           ("https://exhibitx.herokuapp.com/", "Web Client"),
+           ("https://github.com/osu-cascades/exhibit-x-web", "WebClient Code"),
+           ("https://github.com/osu-cascades/exhibit-x", "Sketch Code")
+        ])
+        , div [style "width" "50%", style "position" "relative"]
+        [
+          -- img[imgSrc "exhbitx_blocks.jpg", class "fractal-img" ][],
+          img[imgSrc "exhbitx_stairs.png", class "fractal-img" ][],
+          img[imgSrc "exhbitx_sketchs.png", class "fractal-img" ][]
+        ]
     ]
 
 gameOfLife3d : Html msg 
